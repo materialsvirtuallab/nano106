@@ -41,6 +41,7 @@ coverage.xml
 .mr.developer.cfg
 .project
 .pydevproject
+.idea
 
 # Rope
 .ropeproject
@@ -51,4 +52,3 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
-
