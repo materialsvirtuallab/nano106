@@ -13,7 +13,7 @@ __maintainer__ = "Shyue Ping Ong"
 __email__ = "shyuep@gmail.com"
 __date__ = "4/4/14"
 
-import itertools
+from itertools import product, permutations
 import numpy as np
 
 #Define the fundamental symmetry matrices
@@ -63,7 +63,7 @@ D = {
           [0, 0, 1]]
 }
 
-POINT_GROUPS_GENERATORS = {
+POINT_GROUP_GENERATORS = {
     "1": "a",
     "-1": "h",
     "2": "c",
@@ -110,21 +110,14 @@ class PointGroup(object):
         Args:
             int_symbol (str): International or Hermann-Mauguin Symbol.
         """
-        self.generators = [D[c] for c in POINT_GROUPS_GENERATORS[int_symbol]]
+        self.generators = [D[c] for c in POINT_GROUP_GENERATORS[int_symbol]]
         symm_ops = []
         symm_ops.extend(self.generators)
         new_ops = self.generators
-
         while len(new_ops) > 0:
             gen_ops = []
-            for g1, g2 in itertools.product(new_ops, symm_ops):
-                #Note that we cast the op to int to improve presentation of the results.
-                #This is fine in crystallographic reference frame.
+            for g1, g2 in product(new_ops, symm_ops):
                 op = np.dot(g1, g2)
-                if not in_array_list(symm_ops, op):
-                    gen_ops.append(op)
-                    symm_ops.append(op)
-                op = np.dot(g2, g1)
                 if not in_array_list(symm_ops, op):
                     gen_ops.append(op)
                     symm_ops.append(op)
@@ -141,13 +134,20 @@ class PointGroup(object):
 
 
 def in_array_list(array_list, a):
-    for i in array_list:
-        if np.all(np.equal(a, i)):
-            return True
-    return False
+    if len(array_list) == 0:
+        return False
+    dim = tuple(range(1, a.ndim + 1))
+    return np.any(np.all(np.equal(array_list, a[None, :]), tuple(dim)))
 
 
 if __name__ == "__main__":
-    for k in POINT_GROUPS_GENERATORS.keys():
+    for k in POINT_GROUP_GENERATORS.keys():
         pg = PointGroup(k)
         print "Order of point group %s is %d" % (k, len(pg.symmetry_ops))
+
+    from sympy import symbols
+    x, y, z = symbols("x y z")
+    p = [x,y,z]
+    pg = PointGroup("m-3m")
+    for r in pg.get_orbit(p):
+        print r
