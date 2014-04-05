@@ -134,10 +134,15 @@ class PointGroup(object):
 
 
 def in_array_list(array_list, a):
+    """
+    Extremely efficient nd-array comparison using numpy's broadcasting. This
+    function checks if a particular array a, is present in a list of arrays.
+    It works for arrays of any size, e.g., even matrix searches.
+    """
     if len(array_list) == 0:
         return False
-    dim = tuple(range(1, a.ndim + 1))
-    return np.any(np.all(np.equal(array_list, a[None, :]), tuple(dim)))
+    axes = tuple(range(1, a.ndim + 1))
+    return np.any(np.all(np.equal(array_list, a[None, :]), axes))
 
 
 if __name__ == "__main__":
