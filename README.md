@@ -1,5 +1,5 @@
-NANO106
-=======
+NANO106 - Crystallography of Materials
+======================================
 
 Welcome to the repo for NANO106.
 
