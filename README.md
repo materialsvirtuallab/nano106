@@ -1,5 +1,4 @@
-NANO106 - Crystallography of Materials
-======================================
+# NANO106 - Crystallography of Materials
 
 Welcome to the repo for NANO106.
 
@@ -13,8 +12,21 @@ in LaTeX.
 While this repo is completely open and anyone is welcome to use the materials
 contain therein, I would ask that you acknowledge any usage.
 
-Acknowledgemnents
------------------
+## Usage
+
+To fully make use of this repo, it is recommended that you clone and install
+the symmetry package included, as well as ipython, numpy, sympy,
+and for some more specific materials analysis, [pymatgen](http://www.pymatgen.org).
+
+However, you can explore a lot of the materials without any installation.
+
+### Viewing the Notebooks
+
+You can explore the notebooks using the excellent online ipython notebook viewer. 
+To begin, go to this [link](http://nbviewer.ipython.org/github/materialsvirtuallab/nano106/tree/master/lectures/)
+which points to the root lectures directory.
+
+## Acknowledgemnents
 
 Nano106 uses the following textbooks and much of the code and material
 contain therein is based on concepts in these books. They are highly
