@@ -63,8 +63,6 @@ D = {
           [0, 0, 1]]
 }
 
-D = {k: np.array(v) for k, v in D.items()}
-
 POINT_GROUPS_GENERATORS = {
     "1": "a",
     "-1": "h",
@@ -106,6 +104,12 @@ class PointGroup(object):
     """
 
     def __init__(self, int_symbol):
+        """
+        Initializes a Point Group from its international symbol.
+
+        Args:
+            int_symbol (str): International or Hermann-Mauguin Symbol.
+        """
         self.generators = [D[c] for c in POINT_GROUPS_GENERATORS[int_symbol]]
         symm_ops = []
         symm_ops.extend(self.generators)
@@ -141,6 +145,7 @@ def in_array_list(array_list, a):
         if np.all(np.equal(a, i)):
             return True
     return False
+
 
 if __name__ == "__main__":
     for k in POINT_GROUPS_GENERATORS.keys():
