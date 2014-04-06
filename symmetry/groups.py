@@ -18,6 +18,7 @@ import numpy as np
 
 from symmetry.data import GENERATOR_MATRICES, POINT_GROUP_ENC
 
+
 class PointGroup(object):
     """
     Object representing a Point Group, with generators and symmetry operations.
@@ -52,6 +53,12 @@ class PointGroup(object):
             if not in_array_list(orbit, pp):
                 orbit.append(pp)
         return orbit
+
+
+class SpaceGroup(object):
+
+    def __init__(self, int_symbol):
+        pass
 
 
 def in_array_list(array_list, a):
