@@ -26,10 +26,10 @@ You can explore the notebooks using the excellent online ipython notebook viewer
 To begin, go to this [link](http://nbviewer.ipython.org/github/materialsvirtuallab/nano106/tree/master/lectures/)
 which points to the root lectures directory.
 
-## Acknowledgemnents
+## Acknowledgements
 
 Nano106 uses the following textbooks and much of the code and material
-contain therein is based on concepts in these books. They are highly
+contained therein is based on concepts in these books. They are highly
 recommended for students of crystallography, symmetry and its implications
 for material properties.
 
