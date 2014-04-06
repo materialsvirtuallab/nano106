@@ -13,13 +13,35 @@ __maintainer__ = "Shyue Ping Ong"
 __email__ = "shyuep@gmail.com"
 __date__ = "4/4/14"
 
+import os
 from itertools import product
+
 import numpy as np
 
-from symmetry.data import GENERATOR_MATRICES, POINT_GROUP_ENC
+import yaml
 
 
-class PointGroup(object):
+with open(os.path.join(os.path.dirname(__file__), "data.yaml")) as f:
+    data = yaml.load(f)
+
+GENERATOR_MATRICES = data["generator_matrices"]
+POINT_GROUP_ENC = data["point_group_encoding"]
+SPACE_GROUP_ENC = data["space_group_encoding"]
+TRANSLATIONS = data["translations"]
+
+
+class SymmetryGroup(object):
+
+    def get_orbit(self, p):
+        orbit = []
+        for o in self.symmetry_ops:
+            pp = np.dot(o, p)
+            if not in_array_list(orbit, pp):
+                orbit.append(pp)
+        return orbit
+
+
+class PointGroup(SymmetryGroup):
     """
     Object representing a Point Group, with generators and symmetry operations.
     """
@@ -46,16 +68,8 @@ class PointGroup(object):
             new_ops = gen_ops
         self.symmetry_ops = symm_ops
 
-    def get_orbit(self, p):
-        orbit = []
-        for o in self.symmetry_ops:
-            pp = np.dot(o, p)
-            if not in_array_list(orbit, pp):
-                orbit.append(pp)
-        return orbit
 
-
-class SpaceGroup(object):
+class SpaceGroup(SymmetryGroup):
 
     def __init__(self, int_symbol):
         pass
