@@ -254,10 +254,10 @@ space_group_encoding:
   Fd3:
     enc: 06aODDaDODbOOOcOOOdOOOhBBB1ZZZ
     int_number: 203
-  Fd3c:
+  Fd-3c:
     enc: 07aODDaDODbODDcDDOdOOOeFBFhFFF1XXX
     int_number: 228
-  Fd3m:
+  Fd-3m:
     enc: 07aODDaDODbODDcDDOdOOOeFBFhBBB1ZZZ
     int_number: 227
   Fdd2:
@@ -269,10 +269,10 @@ space_group_encoding:
   Fm3:
     enc: 15aODDaDODbOOOcOOOdOOO0
     int_number: 202
-  Fm3c:
+  Fm-3c:
     enc: 16aODDaDODbOOOcOOOdOOOeDDD0
     int_number: 226
-  Fm3m:
+  Fm-3m:
     enc: 16aODDaDODbOOOcOOOdOOOeOOO0
     int_number: 225
   Fmm2:
@@ -365,7 +365,7 @@ space_group_encoding:
   Ia3:
     enc: 14aDDDbDODcODDdOOO0
     int_number: 206
-  Ia3d:
+  Ia-3d:
     enc: 15aDDDbDODcODDdOOOeFBB0
     int_number: 230
   Iba2:
@@ -380,7 +380,7 @@ space_group_encoding:
   Im3:
     enc: 14aDDDbOOOcOOOdOOO0
     int_number: 204
-  Im3m:
+  Im-3m:
     enc: 15aDDDbOOOcOOOdOOOeOOO0
     int_number: 229
   Ima2:
@@ -782,10 +782,10 @@ space_group_encoding:
   Pm3:
     enc: 13bOOOcOOOdOOO0
     int_number: 200
-  Pm3m:
+  Pm-3m:
     enc: 14bOOOcOOOdOOOeOOO0
     int_number: 221
-  Pm3n:
+  Pm-3n:
     enc: 14bOOOcOOOdOOOeDDD0
     int_number: 223
   Pma2:
@@ -815,10 +815,10 @@ space_group_encoding:
   Pn3:
     enc: 04bOOOcOOOdOOOhDDD1YYY
     int_number: 201
-  Pn3m:
+  Pn-3m:
     enc: 05bOOOcOOOdOOOeDDDhDDD1YYY
     int_number: 224
-  Pn3n:
+  Pn-3n:
     enc: 05bOOOcOOOdOOOeOOOhDDD1YYY
     int_number: 222
   Pna21:
