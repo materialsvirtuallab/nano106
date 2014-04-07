@@ -24,7 +24,7 @@ However, you can explore a lot of the materials without any installation.
 
 You can explore the notebooks using the excellent online ipython notebook viewer. 
 To begin, go to this [link](http://nbviewer.ipython.org/github/materialsvirtuallab/nano106/tree/master/lectures/)
-which points to the root lectures directory.
+which points to the root lectures directory and this [link](http://nbviewer.ipython.org/github/materialsvirtuallab/nano106/tree/master/problem_sets/) which points to the problem sets directory.
 
 ## Acknowledgements
 
