@@ -110,7 +110,7 @@ def in_array_list(array_list, a):
 def generate_full_symm(ops):
     symm_ops = list(ops)
     new_ops = ops
-    while len(new_ops) > 0 and len(symm_ops) < 192:
+    while len(new_ops) > 0:
         gen_ops = []
         for g1, g2 in product(new_ops, symm_ops):
             op = np.dot(g1, g2)
@@ -126,7 +126,7 @@ def generate_full_symm_sg(ops):
     for op in symm_ops:
         op[0:3, 3] = np.mod(op[0:3, 3], 1)
     new_ops = ops
-    while len(new_ops) > 0:
+    while len(new_ops) > 0 and len(symm_ops) < 192:
         gen_ops = []
         for g1, g2 in product(new_ops, symm_ops):
             op = np.dot(g1, g2)
