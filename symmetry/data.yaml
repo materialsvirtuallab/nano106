@@ -185,13 +185,13 @@ space_group_encoding:
   Amm2:
     enc: 03aODDbOOOjOOO0
     int_number: 38
-  C2:
+  C121:
     enc: 02aDDOcOOO0
     int_number: 5
-  C2/c:
+  C12/c1:
     enc: 12aDDOcOOD0
     int_number: 15
-  C2/m:
+  C12/m1:
     enc: 12aDDOcOOO0
     int_number: 12
   C222:
@@ -200,7 +200,7 @@ space_group_encoding:
   C2221:
     enc: 03aDDObOODcOOD0
     int_number: 20
-  Cc:
+  C1c1:
     enc: 02aDDOjOOD0
     int_number: 9
   Ccc2:
@@ -212,7 +212,7 @@ space_group_encoding:
   Cccm:
     enc: 13aDDObOOOcOOD0
     int_number: 66
-  Cm:
+  C1m1:
     enc: 02aDDOjOOO0
     int_number: 8
   Cmc21:
@@ -251,7 +251,7 @@ space_group_encoding:
   F432:
     enc: 06aODDaDODbOOOcOOOdOOOeOOO0
     int_number: 209
-  Fd3:
+  Fd-3:
     enc: 06aODDaDODbOOOcOOOdOOOhBBB1ZZZ
     int_number: 203
   Fd-3c:
@@ -266,7 +266,7 @@ space_group_encoding:
   Fddd:
     enc: 05aODDaDODbOOOcOOOhBBB1ZZZ
     int_number: 70
-  Fm3:
+  Fm-3:
     enc: 15aODDaDODbOOOcOOOdOOO0
     int_number: 202
   Fm-3c:
@@ -362,7 +362,7 @@ space_group_encoding:
   I4mm:
     enc: 04aDDDbOOOgOOOjOOO0
     int_number: 107
-  Ia3:
+  Ia-3:
     enc: 14aDDDbDODcODDdOOO0
     int_number: 206
   Ia-3d:
@@ -377,7 +377,7 @@ space_group_encoding:
   Ibca:
     enc: 13aDDDbDODcODD0
     int_number: 73
-  Im3:
+  Im-3:
     enc: 14aDDDbOOOcOOOdOOO0
     int_number: 204
   Im-3m:
@@ -464,22 +464,22 @@ space_group_encoding:
   P1:
     enc: '000'
     int_number: 1
-  P2:
+  P121:
     enc: 01cOOO0
     int_number: 3
-  P2/c:
+  P12/c1:
     enc: 11cOOD0
     int_number: 13
-  P2/m:
+  P12/m1:
     enc: 11cOOO0
     int_number: 10
-  P21:
+  P1211:
     enc: 01cODO0
     int_number: 4
-  P21/c:
+  P121/c1:
     enc: 11cODD0
     int_number: 14
-  P21/m:
+  P121/m1:
     enc: 11cODO0
     int_number: 11
   P21212:
@@ -737,7 +737,7 @@ space_group_encoding:
   P6mm:
     enc: 03nOOObOOOkOOO0
     int_number: 183
-  Pa3:
+  Pa-3:
     enc: 13bDODcODDdOOO0
     int_number: 205
   Pba2:
@@ -758,7 +758,7 @@ space_group_encoding:
   Pbcn:
     enc: 12bDDDcOOD0
     int_number: 60
-  Pc:
+  P1c1:
     enc: 01jOOD0
     int_number: 7
   Pca21:
@@ -776,10 +776,10 @@ space_group_encoding:
   Pccn:
     enc: 12bDDOcODD0
     int_number: 56
-  Pm:
+  P1m1:
     enc: 01jOOO0
     int_number: 6
-  Pm3:
+  Pm-3:
     enc: 13bOOOcOOOdOOO0
     int_number: 200
   Pm-3m:
@@ -812,7 +812,7 @@ space_group_encoding:
   Pmna:
     enc: 12bDODcDOD0
     int_number: 53
-  Pn3:
+  Pn-3:
     enc: 04bOOOcOOOdOOOhDDD1YYY
     int_number: 201
   Pn-3m:

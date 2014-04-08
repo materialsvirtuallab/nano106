@@ -53,6 +53,7 @@ class PointGroup(SymmetryGroup):
         Args:
             int_symbol (str): International or Hermann-Mauguin Symbol.
         """
+        self.symbol = int_symbol
         self.generators = [GENERATOR_MATRICES[c]
                            for c in POINT_GROUP_ENC[int_symbol]]
         self.symmetry_ops = generate_full_symm(self.generators)
@@ -61,13 +62,18 @@ class PointGroup(SymmetryGroup):
 class SpaceGroup(SymmetryGroup):
 
     def __init__(self, int_symbol):
+        """
+        Initializes a Point Group from its *full* international symbol.
+        """
+        self.symbol = int_symbol
         enc = list(SPACE_GROUP_ENC[int_symbol]["enc"])
         inversion = int(enc.pop(0))
         ngen = int(enc.pop(0))
-        symm_ops = []
+        symm_ops = [np.eye(4)]
         if inversion:
-            symm_ops.append([[-1, 0, 0, 0], [0, -1, 0, 0], [0, 0, -1, 0],
-                             [0, 0, 0, 1]])
+            symm_ops.append(np.array(
+                [[-1, 0, 0, 0], [0, -1, 0, 0], [0, 0, -1, 0],
+                 [0, 0, 0, 1]]))
         for i in xrange(ngen):
             m = np.eye(4)
             m[:3, :3] = GENERATOR_MATRICES[enc.pop(0)]
@@ -76,8 +82,17 @@ class SpaceGroup(SymmetryGroup):
             m[2, 3] = TRANSLATIONS[enc.pop(0)]
             symm_ops.append(m)
 
-        print symm_ops
-        self.symmetry_ops = generate_full_symm(symm_ops)
+        self.symmetry_ops = generate_full_symm_sg(symm_ops)
+
+    @classmethod
+    def from_int_number(cls, int_number):
+        for n, v in SPACE_GROUP_ENC.items():
+            if v["int_number"] == int_number:
+                return SpaceGroup(n)
+
+    def __str__(self):
+        return "Spacegroup %s with order %d" % (self.symbol,
+                                                len(self.symmetry_ops))
 
 
 def in_array_list(array_list, a):
@@ -95,7 +110,7 @@ def in_array_list(array_list, a):
 def generate_full_symm(ops):
     symm_ops = list(ops)
     new_ops = ops
-    while len(new_ops) > 0:
+    while len(new_ops) > 0 and len(symm_ops) < 192:
         gen_ops = []
         for g1, g2 in product(new_ops, symm_ops):
             op = np.dot(g1, g2)
@@ -103,9 +118,39 @@ def generate_full_symm(ops):
                 gen_ops.append(op)
                 symm_ops.append(op)
         new_ops = gen_ops
-        print symm_ops
-        break
     return symm_ops
+
+
+def generate_full_symm_sg(ops):
+    symm_ops = list(ops)
+    for op in symm_ops:
+        op[0:3, 3] = np.mod(op[0:3, 3], 1)
+    new_ops = ops
+    while len(new_ops) > 0:
+        gen_ops = []
+        for g1, g2 in product(new_ops, symm_ops):
+            op = np.dot(g1, g2)
+            op[0:3, 3] = np.mod(op[0:3, 3], 1)
+            if not in_array_list(symm_ops, op):
+                gen_ops.append(op)
+                symm_ops.append(op)
+        new_ops = gen_ops
+    return symm_ops
+
+
+def get_spacegroup():
+    sg = SpaceGroup("Fm-3m")
+    print len(sg.symmetry_ops)
+
+
+def profile_sg():
+    import cProfile
+    cProfile.run('get_spacegroup()', 'stats')
+    import pstats
+    p = pstats.Stats('stats')
+    p.strip_dirs().sort_stats(-1).print_stats()
+    import os
+    os.remove("stats")
 
 
 if __name__ == "__main__":
@@ -120,6 +165,23 @@ if __name__ == "__main__":
     # pg = PointGroup("m-3m")
     # for r in pg.get_orbit(p):
     #     print r
-
+    sg = SpaceGroup.from_int_number(1)
+    print sg
     sg = SpaceGroup("Fm-3m")
-    print len(sg.symmetry_ops)
+    print sg
+    # print len(sg.symmetry_ops)
+    #sg = SpaceGroup("Im-3m")
+    #print len(sg.symmetry_ops)
+    # import json
+    # with open("names") as f:
+    #     names = json.load(f)
+    # for i, n in enumerate(names):
+    #     try:
+    #         int_no = SPACE_GROUP_ENC[n]["int_number"]
+    #         if i != int_no - 1:
+    #             print "Bad number for %s" % n
+    #     except KeyError:
+    #         for k, v in SPACE_GROUP_ENC.items():
+    #             if v["int_number"] == i + 1:
+    #                 print "%s --> %s" % (k, n)
+
