@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
 """
-TODO: Modify module doc.
+Defines SymmetryGroup parent class and PointGroup and SpaceGroup classes.
+Shyue Ping Ong thanks Marc De Graef for his generous sharing of his
+SpaceGroup data as published in his textbook "Structure of Materials".
 """
 
 from __future__ import division
