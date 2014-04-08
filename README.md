@@ -24,11 +24,13 @@ However, you can explore a lot of the materials without any installation.
 
 You can explore the notebooks using the excellent online ipython notebook viewer. 
 To begin, go to this [link](http://nbviewer.ipython.org/github/materialsvirtuallab/nano106/tree/master/lectures/)
-which points to the root lectures directory and this [link](http://nbviewer.ipython.org/github/materialsvirtuallab/nano106/tree/master/problem_sets/) which points to the problem sets directory.
+which points to the root lectures directory and this
+[link](http://nbviewer.ipython.org/github/materialsvirtuallab/nano106/tree/master/problem_sets/)
+which points to the problem sets directory.
 
 ## Acknowledgements
 
-Nano106 uses the following textbooks and much of the code and material
+NANO106 uses the following textbooks and much of the code and material
 contained therein is based on concepts in these books. They are highly
 recommended for students of crystallography, symmetry and its implications
 for material properties.
