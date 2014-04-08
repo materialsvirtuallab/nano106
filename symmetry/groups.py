@@ -64,6 +64,9 @@ class SpaceGroup(SymmetryGroup):
     def __init__(self, int_symbol):
         """
         Initializes a Point Group from its *full* international symbol.
+
+        Args:
+            int_symbol (str): Full International or Hermann-Mauguin Symbol.
         """
         self.symbol = int_symbol
         enc = list(SPACE_GROUP_ENC[int_symbol]["enc"])
@@ -86,6 +89,15 @@ class SpaceGroup(SymmetryGroup):
 
     @classmethod
     def from_int_number(cls, int_number):
+        """
+        Obtains a SpaceGroup from its international number.
+
+        Args:
+            int_number (int): International number.
+
+        Returns:
+            SpaceGroup
+        """
         for n, v in SPACE_GROUP_ENC.items():
             if v["int_number"] == int_number:
                 return SpaceGroup(n)
