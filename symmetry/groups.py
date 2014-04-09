@@ -179,10 +179,7 @@ if __name__ == "__main__":
     # pg = PointGroup("m-3m")
     # for r in pg.get_orbit(p):
     #     print r
-    sg = SpaceGroup.from_int_number(1)
-    print sg
-    sg = SpaceGroup("Fm-3m")
-    print sg
+    profile_sg()
     # print len(sg.symmetry_ops)
     #sg = SpaceGroup("Im-3m")
     #print len(sg.symmetry_ops)
