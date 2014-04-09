@@ -23,12 +23,12 @@ import yaml
 
 
 with open(os.path.join(os.path.dirname(__file__), "data.yaml")) as f:
-    data = yaml.load(f)
+    SYMM_DATA = yaml.load(f)
 
-GENERATOR_MATRICES = data["generator_matrices"]
-POINT_GROUP_ENC = data["point_group_encoding"]
-SPACE_GROUP_ENC = data["space_group_encoding"]
-TRANSLATIONS = {k: Fraction(v) for k, v in data["translations"].items()}
+GENERATOR_MATRICES = SYMM_DATA["generator_matrices"]
+POINT_GROUP_ENC = SYMM_DATA["point_group_encoding"]
+SPACE_GROUP_ENC = SYMM_DATA["space_group_encoding"]
+TRANSLATIONS = {k: Fraction(v) for k, v in SYMM_DATA["translations"].items()}
 
 
 class SymmetryGroup(object):
