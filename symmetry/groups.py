@@ -17,6 +17,7 @@ __date__ = "4/4/14"
 
 import os
 from itertools import product
+from fractions import Fraction
 
 import numpy as np
 
@@ -24,12 +25,12 @@ import yaml
 
 
 with open(os.path.join(os.path.dirname(__file__), "data.yaml")) as f:
-    data = yaml.load(f)
+    SYMM_DATA = yaml.load(f)
 
-GENERATOR_MATRICES = data["generator_matrices"]
-POINT_GROUP_ENC = data["point_group_encoding"]
-SPACE_GROUP_ENC = data["space_group_encoding"]
-TRANSLATIONS = data["translations"]
+GENERATOR_MATRICES = SYMM_DATA["generator_matrices"]
+POINT_GROUP_ENC = SYMM_DATA["point_group_encoding"]
+SPACE_GROUP_ENC = SYMM_DATA["space_group_encoding"]
+TRANSLATIONS = {k: Fraction(v) for k, v in SYMM_DATA["translations"].items()}
 
 
 class SymmetryGroup(object):
@@ -69,6 +70,8 @@ class SpaceGroup(SymmetryGroup):
 
         Args:
             int_symbol (str): Full International or Hermann-Mauguin Symbol.
+            The notation is a LaTeX-like string, with screw axes being
+            represented by an underscore. For example, "P6_3/mmc".
         """
         self.symbol = int_symbol
         enc = list(SPACE_GROUP_ENC[int_symbol]["enc"])
@@ -87,6 +90,7 @@ class SpaceGroup(SymmetryGroup):
             m[2, 3] = TRANSLATIONS[enc.pop(0)]
             symm_ops.append(m)
 
+        self.int_number = SPACE_GROUP_ENC[int_symbol]["int_number"]
         self.symmetry_ops = generate_full_symm_sg(symm_ops)
 
     @classmethod
@@ -107,6 +111,22 @@ class SpaceGroup(SymmetryGroup):
     def __str__(self):
         return "Spacegroup %s with order %d" % (self.symbol,
                                                 len(self.symmetry_ops))
+
+
+def sg_name_from_int_number(int_number):
+    """
+    Obtains a SpaceGroup name from its international number.
+
+    Args:
+        int_number (int): International number.
+
+    Returns:
+        SpaceGroup name
+    """
+    for n, v in SPACE_GROUP_ENC.items():
+        if v["int_number"] == int_number:
+            return n
+    raise ValueError("Invalid international number")
 
 
 def in_array_list(array_list, a):
@@ -179,7 +199,11 @@ if __name__ == "__main__":
     # pg = PointGroup("m-3m")
     # for r in pg.get_orbit(p):
     #     print r
-    profile_sg()
+    # sg = SpaceGroup.from_int_number(1)
+    # print sg
+    sg = SpaceGroup("P6_3/mmc")
+    print sg
+    # print sg.symmetry_ops
     # print len(sg.symmetry_ops)
     #sg = SpaceGroup("Im-3m")
     #print len(sg.symmetry_ops)
@@ -195,4 +219,5 @@ if __name__ == "__main__":
     #         for k, v in SPACE_GROUP_ENC.items():
     #             if v["int_number"] == i + 1:
     #                 print "%s --> %s" % (k, n)
+
 
