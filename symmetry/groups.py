@@ -15,6 +15,7 @@ __date__ = "4/4/14"
 
 import os
 from itertools import product
+from fractions import Fraction
 
 import numpy as np
 
@@ -27,7 +28,7 @@ with open(os.path.join(os.path.dirname(__file__), "data.yaml")) as f:
 GENERATOR_MATRICES = data["generator_matrices"]
 POINT_GROUP_ENC = data["point_group_encoding"]
 SPACE_GROUP_ENC = data["space_group_encoding"]
-TRANSLATIONS = data["translations"]
+TRANSLATIONS = {k: Fraction(v) for k, v in data["translations"].items()}
 
 
 class SymmetryGroup(object):
@@ -67,6 +68,8 @@ class SpaceGroup(SymmetryGroup):
 
         Args:
             int_symbol (str): Full International or Hermann-Mauguin Symbol.
+            The notation is a LaTeX-like string, with screw axes being
+            represented by an underscore. For example, "P6_3/mmc".
         """
         self.symbol = int_symbol
         enc = list(SPACE_GROUP_ENC[int_symbol]["enc"])
@@ -177,10 +180,11 @@ if __name__ == "__main__":
     # pg = PointGroup("m-3m")
     # for r in pg.get_orbit(p):
     #     print r
-    sg = SpaceGroup.from_int_number(1)
+    # sg = SpaceGroup.from_int_number(1)
+    # print sg
+    sg = SpaceGroup("P6_3/mmc")
     print sg
-    sg = SpaceGroup("Fm-3m")
-    print sg
+    # print sg.symmetry_ops
     # print len(sg.symmetry_ops)
     #sg = SpaceGroup("Im-3m")
     #print len(sg.symmetry_ops)
@@ -196,4 +200,5 @@ if __name__ == "__main__":
     #         for k, v in SPACE_GROUP_ENC.items():
     #             if v["int_number"] == i + 1:
     #                 print "%s --> %s" % (k, n)
+
 

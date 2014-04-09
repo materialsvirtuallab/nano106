@@ -185,24 +185,27 @@ space_group_encoding:
   Amm2:
     enc: 03aODDbOOOjOOO0
     int_number: 38
-  C121:
-    enc: 02aDDOcOOO0
-    int_number: 5
   C12/c1:
     enc: 12aDDOcOOD0
     int_number: 15
   C12/m1:
     enc: 12aDDOcOOO0
     int_number: 12
-  C222:
-    enc: 03aDDObOOOcOOO0
-    int_number: 21
-  C2221:
-    enc: 03aDDObOODcOOD0
-    int_number: 20
+  C121:
+    enc: 02aDDOcOOO0
+    int_number: 5
   C1c1:
     enc: 02aDDOjOOD0
     int_number: 9
+  C1m1:
+    enc: 02aDDOjOOO0
+    int_number: 8
+  C222:
+    enc: 03aDDObOOOcOOO0
+    int_number: 21
+  C222_1:
+    enc: 03aDDObOODcOOD0
+    int_number: 20
   Ccc2:
     enc: 03aDDObOOOjOOD0
     int_number: 37
@@ -212,10 +215,7 @@ space_group_encoding:
   Cccm:
     enc: 13aDDObOOOcOOD0
     int_number: 66
-  C1m1:
-    enc: 02aDDOjOOO0
-    int_number: 8
-  Cmc21:
+  Cmc2_1:
     enc: 03aDDObOODjOOD0
     int_number: 36
   Cmca:
@@ -245,12 +245,12 @@ space_group_encoding:
   F23:
     enc: 05aODDaDODbOOOcOOOdOOO0
     int_number: 196
-  F4132:
-    enc: 06aODDaDODbODDcDDOdOOOeFBF0
-    int_number: 210
   F432:
     enc: 06aODDaDODbOOOcOOOdOOOeOOO0
     int_number: 209
+  F4_132:
+    enc: 06aODDaDODbODDcDDOdOOOeFBF0
+    int_number: 210
   Fd-3:
     enc: 06aODDaDODbOOOcOOOdOOOhBBB1ZZZ
     int_number: 203
@@ -302,18 +302,18 @@ space_group_encoding:
   I-4m2:
     enc: 04aDDDbOOOmOOOjOOO0
     int_number: 119
-  I212121:
-    enc: 03aDDDbDODcODD0
-    int_number: 24
-  I213:
-    enc: 04aDDDbDODcODDdOOO0
-    int_number: 199
   I222:
     enc: 03aDDDbOOOcOOO0
     int_number: 23
   I23:
     enc: 04aDDDbOOOcOOOdOOO0
     int_number: 197
+  I2_12_121:
+    enc: 03aDDDbDODcODD0
+    int_number: 24
+  I2_13:
+    enc: 04aDDDbDODcODDdOOO0
+    int_number: 199
   I4:
     enc: 03aDDDbOOOgOOO0
     int_number: 79
@@ -326,36 +326,36 @@ space_group_encoding:
   I4/mmm:
     enc: 14aDDDbOOOgOOOcOOO0
     int_number: 139
-  I41:
-    enc: 03aDDDbDDDgODB0
-    int_number: 80
-  I41/a:
-    enc: 04aDDDbDDDgODBhODB1OYZ
-    int_number: 88
-  I41/acd:
-    enc: 05aDDDbDDDgODBcDOBhODB1OBZ
-    int_number: 142
-  I41/amd:
-    enc: 05aDDDbDDDgODBcDOFhODB1OBZ
-    int_number: 141
-  I4122:
-    enc: 04aDDDbDDDgODBcDOF0
-    int_number: 98
-  I4132:
-    enc: 05aDDDbDODcODDdOOOeFBB0
-    int_number: 214
-  I41cd:
-    enc: 04aDDDbDDDgODBjOOD0
-    int_number: 110
-  I41md:
-    enc: 04aDDDbDDDgODBjOOO0
-    int_number: 109
   I422:
     enc: 04aDDDbOOOgOOOcOOO0
     int_number: 97
   I432:
     enc: 05aDDDbOOOcOOOdOOOeOOO0
     int_number: 211
+  I4_1:
+    enc: 03aDDDbDDDgODB0
+    int_number: 80
+  I4_1/a:
+    enc: 04aDDDbDDDgODBhODB1OYZ
+    int_number: 88
+  I4_1/acd:
+    enc: 05aDDDbDDDgODBcDOBhODB1OBZ
+    int_number: 142
+  I4_1/amd:
+    enc: 05aDDDbDDDgODBcDOFhODB1OBZ
+    int_number: 141
+  I4_122:
+    enc: 04aDDDbDDDgODBcDOF0
+    int_number: 98
+  I4_132:
+    enc: 05aDDDbDODcODDdOOOeFBB0
+    int_number: 214
+  I4_1cd:
+    enc: 04aDDDbDDDgODBjOOD0
+    int_number: 110
+  I4_1md:
+    enc: 04aDDDbDDDgODBjOOO0
+    int_number: 109
   I4cm:
     enc: 04aDDDbOOOgOOOjOOD0
     int_number: 108
@@ -416,10 +416,10 @@ space_group_encoding:
   P-4:
     enc: 02bOOOmOOO0
     int_number: 81
-  P-421c:
+  P-42_1c:
     enc: 03bOOOmOOOcDDD0
     int_number: 114
-  P-421m:
+  P-42_1m:
     enc: 03bOOOmOOOcDDO0
     int_number: 113
   P-42c:
@@ -464,73 +464,79 @@ space_group_encoding:
   P1:
     enc: '000'
     int_number: 1
-  P121:
-    enc: 01cOOO0
-    int_number: 3
   P12/c1:
     enc: 11cOOD0
     int_number: 13
   P12/m1:
     enc: 11cOOO0
     int_number: 10
-  P1211:
-    enc: 01cODO0
-    int_number: 4
-  P121/c1:
+  P121:
+    enc: 01cOOO0
+    int_number: 3
+  P12_1/c1:
     enc: 11cODD0
     int_number: 14
-  P121/m1:
+  P12_1/m1:
     enc: 11cODO0
     int_number: 11
-  P21212:
-    enc: 02bOOOcDDO0
-    int_number: 18
-  P212121:
-    enc: 02bDODcODD0
-    int_number: 19
-  P213:
-    enc: 03bDODcODDdOOO0
-    int_number: 198
+  P12_11:
+    enc: 01cODO0
+    int_number: 4
+  P1c1:
+    enc: 01jOOD0
+    int_number: 7
+  P1m1:
+    enc: 01jOOO0
+    int_number: 6
   P222:
     enc: 02bOOOcOOO0
     int_number: 16
-  P2221:
+  P222_1:
     enc: 02bOODcOOD0
     int_number: 17
   P23:
     enc: 03bOOOcOOOdOOO0
     int_number: 195
+  P2_12_12:
+    enc: 02bOOOcDDO0
+    int_number: 18
+  P2_12_121:
+    enc: 02bDODcODD0
+    int_number: 19
+  P2_13:
+    enc: 03bDODcODDdOOO0
+    int_number: 198
   P3:
     enc: 01nOOO0
     int_number: 143
-  P31:
-    enc: 01nOOC0
-    int_number: 144
-  P3112:
-    enc: 02nOOCfOOE0
-    int_number: 151
   P312:
     enc: 02nOOOfOOO0
     int_number: 149
-  P3121:
-    enc: 02nOOCeOOO0
-    int_number: 152
   P31c:
     enc: 02nOOOlOOD0
     int_number: 159
   P31m:
     enc: 02nOOOlOOO0
     int_number: 157
-  P32:
-    enc: 01nOOE0
-    int_number: 145
   P321:
     enc: 02nOOOeOOO0
     int_number: 150
-  P3212:
+  P3_1:
+    enc: 01nOOC0
+    int_number: 144
+  P3_112:
+    enc: 02nOOCfOOE0
+    int_number: 151
+  P3_121:
+    enc: 02nOOCeOOO0
+    int_number: 152
+  P3_2:
+    enc: 01nOOE0
+    int_number: 145
+  P3_212:
     enc: 02nOOEfOOC0
     int_number: 153
-  P3221:
+  P3_221:
     enc: 02nOOEeOOO0
     int_number: 154
   P3c1:
@@ -572,91 +578,91 @@ space_group_encoding:
   P4/nnc:
     enc: 04bOOOgOOOcOOOhDDD1YYY
     int_number: 126
-  P41:
-    enc: 02bOODgOOB0
-    int_number: 76
-  P41212:
-    enc: 03bOODgDDBcDDB0
-    int_number: 92
-  P4122:
-    enc: 03bOODgOOBcOOO0
-    int_number: 91
-  P4132:
-    enc: 04bDODcODDdOOOeFBB0
-    int_number: 213
-  P42:
-    enc: 02bOOOgOOD0
-    int_number: 77
-  P42/m:
-    enc: 12bOOOgOOD0
-    int_number: 84
-  P42/mbc:
-    enc: 13bOOOgOODcDDO0
-    int_number: 135
-  P42/mcm:
-    enc: 13bOOOgOODcOOD0
-    int_number: 132
-  P42/mmc:
-    enc: 13bOOOgOODcOOO0
-    int_number: 131
-  P42/mnm:
-    enc: 13bOOOgDDDcDDD0
-    int_number: 136
-  P42/n:
-    enc: 03bOOOgDDDhDDD1YYY
-    int_number: 86
-  P42/nbc:
-    enc: 04bOOOgDDDcOODhDDD1YBY
-    int_number: 133
-  P42/ncm:
-    enc: 04bOOOgDDDcDDOhDDD1YBY
-    int_number: 138
-  P42/nmc:
-    enc: 04bOOOgDDDcDDDhDDD1YBY
-    int_number: 137
-  P42/nnm:
-    enc: 04bOOOgDDDcOOOhDDD1YBY
-    int_number: 134
-  P4212:
-    enc: 03bOOOgDDOcDDO0
-    int_number: 90
   P422:
     enc: 03bOOOgOOOcOOO0
     int_number: 89
-  P42212:
-    enc: 03bOOOgDDDcDDD0
-    int_number: 94
-  P4222:
-    enc: 03bOOOgOODcOOO0
-    int_number: 93
-  P4232:
-    enc: 04bOOOcOOOdOOOeDDD0
-    int_number: 208
-  P42bc:
-    enc: 03bOOOgOODjDDO0
-    int_number: 106
-  P42cm:
-    enc: 03bOOOgOODjOOD0
-    int_number: 101
-  P42mc:
-    enc: 03bOOOgOODjOOO0
-    int_number: 105
-  P42nm:
-    enc: 03bOOOgDDDjDDD0
-    int_number: 102
-  P43:
-    enc: 02bOODgOOF0
-    int_number: 78
+  P42_12:
+    enc: 03bOOOgDDOcDDO0
+    int_number: 90
   P432:
     enc: 04bOOOcOOOdOOOeOOO0
     int_number: 207
-  P43212:
-    enc: 03bOODgDDFcDDF0
-    int_number: 96
-  P4322:
+  P4_1:
+    enc: 02bOODgOOB0
+    int_number: 76
+  P4_122:
+    enc: 03bOODgOOBcOOO0
+    int_number: 91
+  P4_12_12:
+    enc: 03bOODgDDBcDDB0
+    int_number: 92
+  P4_132:
+    enc: 04bDODcODDdOOOeFBB0
+    int_number: 213
+  P4_2:
+    enc: 02bOOOgOOD0
+    int_number: 77
+  P4_2/m:
+    enc: 12bOOOgOOD0
+    int_number: 84
+  P4_2/mbc:
+    enc: 13bOOOgOODcDDO0
+    int_number: 135
+  P4_2/mcm:
+    enc: 13bOOOgOODcOOD0
+    int_number: 132
+  P4_2/mmc:
+    enc: 13bOOOgOODcOOO0
+    int_number: 131
+  P4_2/mnm:
+    enc: 13bOOOgDDDcDDD0
+    int_number: 136
+  P4_2/n:
+    enc: 03bOOOgDDDhDDD1YYY
+    int_number: 86
+  P4_2/nbc:
+    enc: 04bOOOgDDDcOODhDDD1YBY
+    int_number: 133
+  P4_2/ncm:
+    enc: 04bOOOgDDDcDDOhDDD1YBY
+    int_number: 138
+  P4_2/nmc:
+    enc: 04bOOOgDDDcDDDhDDD1YBY
+    int_number: 137
+  P4_2/nnm:
+    enc: 04bOOOgDDDcOOOhDDD1YBY
+    int_number: 134
+  P4_222:
+    enc: 03bOOOgOODcOOO0
+    int_number: 93
+  P4_22_12:
+    enc: 03bOOOgDDDcDDD0
+    int_number: 94
+  P4_232:
+    enc: 04bOOOcOOOdOOOeDDD0
+    int_number: 208
+  P4_2bc:
+    enc: 03bOOOgOODjDDO0
+    int_number: 106
+  P4_2cm:
+    enc: 03bOOOgOODjOOD0
+    int_number: 101
+  P4_2mc:
+    enc: 03bOOOgOODjOOO0
+    int_number: 105
+  P4_2nm:
+    enc: 03bOOOgDDDjDDD0
+    int_number: 102
+  P4_3:
+    enc: 02bOODgOOF0
+    int_number: 78
+  P4_322:
     enc: 03bOODgOOFcOOO0
     int_number: 95
-  P4332:
+  P4_32_12:
+    enc: 03bOODgDDFcDDF0
+    int_number: 96
+  P4_332:
     enc: 04bDODcODDdOOOeBFF0
     int_number: 212
   P4bm:
@@ -683,52 +689,52 @@ space_group_encoding:
   P6/mmm:
     enc: 13nOOObOOOeOOO0
     int_number: 191
-  P61:
-    enc: 02nOOCbOOD0
-    int_number: 169
-  P6122:
-    enc: 03nOOCbOODeOOC0
-    int_number: 178
-  P62:
-    enc: 02nOOEbOOO0
-    int_number: 171
   P622:
     enc: 03nOOObOOOeOOO0
     int_number: 177
-  P6222:
+  P6_1:
+    enc: 02nOOCbOOD0
+    int_number: 169
+  P6_122:
+    enc: 03nOOCbOODeOOC0
+    int_number: 178
+  P6_2:
+    enc: 02nOOEbOOO0
+    int_number: 171
+  P6_222:
     enc: 03nOOEbOOOeOOE0
     int_number: 180
-  P63:
+  P6_3:
     enc: 02nOOObOOD0
     int_number: 173
-  P63/m:
+  P6_3/m:
     enc: 12nOOObOOD0
     int_number: 176
-  P63/mcm:
+  P6_3/mcm:
     enc: 13nOOObOODeOOD0
     int_number: 193
-  P63/mmc:
+  P6_3/mmc:
     enc: 13nOOObOODeOOO0
     int_number: 194
-  P6322:
+  P6_322:
     enc: 03nOOObOODeOOO0
     int_number: 182
-  P63cm:
+  P6_3cm:
     enc: 03nOOObOODkOOD0
     int_number: 185
-  P63mc:
+  P6_3mc:
     enc: 03nOOObOODkOOO0
     int_number: 186
-  P64:
+  P6_4:
     enc: 02nOOCbOOO0
     int_number: 172
-  P6422:
+  P6_422:
     enc: 03nOOCbOOOeOOC0
     int_number: 181
-  P65:
+  P6_5:
     enc: 02nOOEbOOD0
     int_number: 170
-  P6522:
+  P6_522:
     enc: 03nOOEbOODeOOE0
     int_number: 179
   P6cc:
@@ -758,10 +764,7 @@ space_group_encoding:
   Pbcn:
     enc: 12bDDDcOOD0
     int_number: 60
-  P1c1:
-    enc: 01jOOD0
-    int_number: 7
-  Pca21:
+  Pca2_1:
     enc: 02bOODjDOO0
     int_number: 29
   Pcc2:
@@ -776,9 +779,6 @@ space_group_encoding:
   Pccn:
     enc: 12bDDOcODD0
     int_number: 56
-  P1m1:
-    enc: 01jOOO0
-    int_number: 6
   Pm-3:
     enc: 13bOOOcOOOdOOO0
     int_number: 200
@@ -791,7 +791,7 @@ space_group_encoding:
   Pma2:
     enc: 02bOOOjDOO0
     int_number: 28
-  Pmc21:
+  Pmc2_1:
     enc: 02bOODjOOD0
     int_number: 26
   Pmm2:
@@ -806,7 +806,7 @@ space_group_encoding:
   Pmmn:
     enc: 03bOOOcDDOhDDO1BBO
     int_number: 59
-  Pmn21:
+  Pmn2_1:
     enc: 02bDODjDOD0
     int_number: 31
   Pmna:
@@ -821,7 +821,7 @@ space_group_encoding:
   Pn-3n:
     enc: 05bOOOcOOOdOOOeOOOhDDD1YYY
     int_number: 222
-  Pna21:
+  Pna2_1:
     enc: 02bOODjDDO0
     int_number: 33
   Pnc2:
@@ -885,14 +885,14 @@ space_group_encoding:
     enc: 01dOOO0
     int_number: 231
 translations:
-  A: 0.16666666666666666
-  B: 0.25
-  C: 0.3333333333333333
-  D: 0.5
-  E: 0.6666666666666666
-  F: 0.75
-  G: 0.8333333333333334
-  O: 0
-  X: -0.375
-  Y: -0.25
-  Z: -0.125
+  A: 1/6
+  B: 1/4
+  C: 1/3
+  D: 1/2
+  E: 2/3
+  F: 3/4
+  G: 5/6
+  O: '0'
+  X: -3/8
+  Y: -1/4
+  Z: -1/8
