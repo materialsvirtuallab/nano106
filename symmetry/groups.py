@@ -39,6 +39,7 @@ class SymmetryGroup(object):
         orbit = []
         for o in self.symmetry_ops:
             pp = np.dot(o, p)
+            pp = np.mod(pp, 1)
             if not in_array_list(orbit, pp):
                 orbit.append(pp)
         return orbit
@@ -92,6 +93,11 @@ class SpaceGroup(SymmetryGroup):
 
         self.int_number = SPACE_GROUP_ENC[int_symbol]["int_number"]
         self.symmetry_ops = generate_full_symm_sg(symm_ops)
+
+    def get_orbit(self, p):
+        p = np.append(p, [1])
+        orbit = super(SpaceGroup, self).get_orbit(p)
+        return np.delete(orbit, np.s_[-1:], 1)
 
     @classmethod
     def from_int_number(cls, int_number):
@@ -156,18 +162,19 @@ def generate_full_symm(ops):
 
 
 def generate_full_symm_sg(ops):
-    symm_ops = list(ops)
+    symm_ops = np.array(ops)
     for op in symm_ops:
         op[0:3, 3] = np.mod(op[0:3, 3], 1)
     new_ops = ops
     while len(new_ops) > 0 and len(symm_ops) < 192:
         gen_ops = []
-        for g1, g2 in product(new_ops, symm_ops):
-            op = np.dot(g1, g2)
-            op[0:3, 3] = np.mod(op[0:3, 3], 1)
-            if not in_array_list(symm_ops, op):
-                gen_ops.append(op)
-                symm_ops.append(op)
+        for g in new_ops:
+            new_ops = np.einsum('ij...,...i', g, symm_ops)
+            new_ops[:, 0:3, 3] = np.mod(new_ops[:, 0:3, 3], 1)
+            for op in new_ops:
+                if not in_array_list(symm_ops, op):
+                    gen_ops.append(op)
+                    symm_ops = np.append(symm_ops, [op], axis=0)
         new_ops = gen_ops
     return symm_ops
 
@@ -188,36 +195,28 @@ def profile_sg():
 
 
 if __name__ == "__main__":
-    from sympy import symbols
-
     # for k in POINT_GROUP_ENC.keys():
     #     pg = PointGroup(k)
     #     print "Order of point group %s is %d" % (k, len(pg.symmetry_ops))
     #
-    # x, y, z = symbols("x y z")
-    # p = [x,y,z]
+    from sympy import symbols
+    x, y, z = symbols("x y z")
+    p = [x,y,z]
     # pg = PointGroup("m-3m")
     # for r in pg.get_orbit(p):
     #     print r
     # sg = SpaceGroup.from_int_number(1)
     # print sg
-    sg = SpaceGroup("P6_3/mmc")
-    print sg
+    sg = SpaceGroup("Ia-3d")
+    print sg.symmetry_ops
+    p = [0.1, 0.25, 0.3]
+    for r in sg.get_orbit(p):
+        print r
+    print len(sg.get_orbit(p))
     # print sg.symmetry_ops
-    # print len(sg.symmetry_ops)
+    #print len(sg.symmetry_ops)
     #sg = SpaceGroup("Im-3m")
     #print len(sg.symmetry_ops)
-    # import json
-    # with open("names") as f:
-    #     names = json.load(f)
-    # for i, n in enumerate(names):
-    #     try:
-    #         int_no = SPACE_GROUP_ENC[n]["int_number"]
-    #         if i != int_no - 1:
-    #             print "Bad number for %s" % n
-    #     except KeyError:
-    #         for k, v in SPACE_GROUP_ENC.items():
-    #             if v["int_number"] == i + 1:
-    #                 print "%s --> %s" % (k, n)
+    #profile_sg()
 
 
