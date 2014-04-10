@@ -115,8 +115,8 @@ class SpaceGroup(SymmetryGroup):
                 return SpaceGroup(n)
 
     def __str__(self):
-        return "Spacegroup %s with order %d" % (self.symbol,
-                                                len(self.symmetry_ops))
+        return "Spacegroup %s with international number %d and order %d" % (
+            self.symbol, self.int_number, len(self.symmetry_ops))
 
 
 def sg_name_from_int_number(int_number):
@@ -147,6 +147,17 @@ def in_array_list(array_list, a):
     return np.any(np.all(np.equal(array_list, a[None, :]), axes))
 
 
+def in_matrix_list(matrix_list, a):
+    """
+    Extremely efficient nd-array comparison using numpy's broadcasting. This
+    function checks if a particular array a, is present in a list of arrays.
+    It works for arrays of any size, e.g., even matrix searches.
+    """
+    if len(matrix_list) == 0:
+        return False
+    return np.any(np.sum(np.abs(matrix_list - a[None, :]), (1, 2)) < 1e-5)
+
+
 def generate_full_symm(ops):
     symm_ops = list(ops)
     new_ops = ops
@@ -172,7 +183,7 @@ def generate_full_symm_sg(ops):
             new_ops = np.einsum('ij...,...i', g, symm_ops)
             new_ops[:, 0:3, 3] = np.mod(new_ops[:, 0:3, 3], 1)
             for op in new_ops:
-                if not in_array_list(symm_ops, op):
+                if not in_matrix_list(symm_ops, op):
                     gen_ops.append(op)
                     symm_ops = np.append(symm_ops, [op], axis=0)
         new_ops = gen_ops
@@ -207,12 +218,16 @@ if __name__ == "__main__":
     #     print r
     # sg = SpaceGroup.from_int_number(1)
     # print sg
-    sg = SpaceGroup("Ia-3d")
-    print sg.symmetry_ops
-    p = [0.1, 0.25, 0.3]
-    for r in sg.get_orbit(p):
-        print r
-    print len(sg.get_orbit(p))
+    for i in range(1, 231):
+        sg = SpaceGroup.from_int_number(i)
+        print sg
+    #sg = SpaceGroup("P3_1")
+    #p = [0.1, 0.25, 0.3]
+    #for r in sg.get_orbit(p):
+    #    print r
+    #print len(sg.get_orbit(p))
+
+
     # print sg.symmetry_ops
     #print len(sg.symmetry_ops)
     #sg = SpaceGroup("Im-3m")
