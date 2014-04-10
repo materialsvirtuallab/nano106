@@ -180,12 +180,9 @@ def generate_full_symm_sg(ops):
         gen_ops = []
         for g in new_ops:
             new_ops = np.einsum('ij...,...i', g, symm_ops)
-            # new_ops[:, 0:3, 3] = np.mod(new_ops[:, 0:3, 3], 1)
-            # ind = np.where(1 - new_ops[:, 0:3, 3] < 1e-5)
-            # new_ops[ind, 0:3, 3] = 0
             for op in new_ops:
                 op[0:3, 3] = np.mod(op[0:3, 3], 1)
-                ind = np.where(1 - op[0:3, 3] < 1e-5)
+                ind = np.where(np.abs(1 - op[0:3, 3]) < 1e-5)
                 op[ind, 3] = 0
                 if not in_matrix_list(symm_ops, op):
                     gen_ops.append(op)
