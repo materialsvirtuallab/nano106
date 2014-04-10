@@ -90,7 +90,6 @@ class SpaceGroup(SymmetryGroup):
             m[1, 3] = TRANSLATIONS[enc.pop(0)]
             m[2, 3] = TRANSLATIONS[enc.pop(0)]
             symm_ops.append(m)
-
         self.int_number = SPACE_GROUP_ENC[int_symbol]["int_number"]
         self.symmetry_ops = generate_full_symm_sg(symm_ops)
 
@@ -144,7 +143,7 @@ def in_array_list(array_list, a):
     if len(array_list) == 0:
         return False
     axes = tuple(range(1, a.ndim + 1))
-    return np.any(np.all(np.equal(array_list, a[None, :]), axes))
+    return np.any(np.sum(np.abs(array_list - a[None, :]), axes) < 1e-5)
 
 
 def in_matrix_list(matrix_list, a):
@@ -181,8 +180,13 @@ def generate_full_symm_sg(ops):
         gen_ops = []
         for g in new_ops:
             new_ops = np.einsum('ij...,...i', g, symm_ops)
-            new_ops[:, 0:3, 3] = np.mod(new_ops[:, 0:3, 3], 1)
+            # new_ops[:, 0:3, 3] = np.mod(new_ops[:, 0:3, 3], 1)
+            # ind = np.where(1 - new_ops[:, 0:3, 3] < 1e-5)
+            # new_ops[ind, 0:3, 3] = 0
             for op in new_ops:
+                op[0:3, 3] = np.mod(op[0:3, 3], 1)
+                ind = np.where(1 - op[0:3, 3] < 1e-5)
+                op[ind, 3] = 0
                 if not in_matrix_list(symm_ops, op):
                     gen_ops.append(op)
                     symm_ops = np.append(symm_ops, [op], axis=0)
@@ -218,13 +222,25 @@ if __name__ == "__main__":
     #     print r
     # sg = SpaceGroup.from_int_number(1)
     # print sg
-    for i in range(1, 231):
-        sg = SpaceGroup.from_int_number(i)
-        print sg
-    #sg = SpaceGroup("P3_1")
-    #p = [0.1, 0.25, 0.3]
-    #for r in sg.get_orbit(p):
-    #    print r
+    # for i in range(1, 231):
+    #     sg = SpaceGroup.from_int_number(i)
+    #     print sg
+    sg = SpaceGroup("R-3c")
+    print len(sg.symmetry_ops)
+    print sg.symmetry_ops
+    # import itertools
+    # for op1, op2 in itertools.combinations(sg.symmetry_ops, 2):
+    #     print np.abs(np.subtract(op1, op2))
+    #     if np.sum(np.abs(np.subtract(op1, op2))) < 1e-3:
+    #         print op1
+    #         print op2
+    # for op in sg.symmetry_ops:
+    #     print op
+    # print len(sg.symmetry_ops)
+    # #print "%.16f" % (sg.symmetry_ops[-1][1,3] % 1)
+    # p = [0.1, 0.25, 0.3]
+    # for r in sg.get_orbit(p):
+    #     print r
     #print len(sg.get_orbit(p))
 
 
