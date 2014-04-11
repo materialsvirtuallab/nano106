@@ -124,6 +124,8 @@ class SpaceGroup(SymmetryGroup):
         Order of Space Group
     """
 
+    SGNAMES = tuple(SPACE_GROUP_ENC.keys())
+
     def __init__(self, int_symbol):
         """
         Initializes a Space Group from its *full* international symbol.
@@ -272,9 +274,13 @@ def in_array_list(array_list, a, tol=1e-5):
     It works for arrays of any size, e.g., even matrix searches.
 
     Args:
-        array_list: A list of arrays to compare to.
-        a: The test array for comparison.
-        tol: The tolerance. Defaults to 1e-5. If 0, an exact match is done.
+        array_list ([array]): A list of arrays to compare to.
+        a (array): The test array for comparison.
+        tol (float): The tolerance. Defaults to 1e-5. If 0, an exact match is
+            done.
+
+    Returns:
+        (bool)
     """
     if len(array_list) == 0:
         return False
@@ -283,4 +289,3 @@ def in_array_list(array_list, a, tol=1e-5):
         return np.any(np.all(np.equal(array_list, a[None, :]), axes))
     else:
         return np.any(np.sum(np.abs(array_list - a[None, :]), axes) < tol)
-

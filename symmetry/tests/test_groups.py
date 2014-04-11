@@ -30,8 +30,8 @@ class PointGroupTest(unittest.TestCase):
 class SpaceGroupTest(unittest.TestCase):
 
     def test_order_symm_ops(self):
-        for i in range(1, 231):
-            sg = SpaceGroup.from_int_number(i, False)
+        for name in SpaceGroup.SGNAMES:
+            sg = SpaceGroup(name)
             self.assertEqual(len(sg.symmetry_ops), sg.order)
 
     def test_crystal_system(self):
