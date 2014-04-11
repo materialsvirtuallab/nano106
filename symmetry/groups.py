@@ -248,9 +248,9 @@ def sg_symbol_from_int_number(int_number, hexagonal=True):
         raise ValueError("Invalid international number!")
     if len(syms) == 2:
         if hexagonal:
-            syms = filter(lambda s: s.endswith("H"), syms)
+            syms = list(filter(lambda s: s.endswith("H"), syms))
         else:
-            syms = filter(lambda s: not s.endswith("H"), syms)
+            syms = list(filter(lambda s: not s.endswith("H"), syms))
     return syms.pop()
 
 
