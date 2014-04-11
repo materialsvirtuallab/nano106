@@ -68,3 +68,8 @@ def release():
     test()
     makedoc()
     publish()
+
+def opendoc():
+    import webbrowser
+    pth = os.path.abspath("docs/_build/html/index.html")
+    webbrowser.open("file://" + pth)
