@@ -246,30 +246,3 @@ def in_array_list(array_list, a):
         return False
     axes = tuple(range(1, a.ndim + 1))
     return np.any(np.sum(np.abs(array_list - a[None, :]), axes) < 1e-5)
-
-
-if __name__ == "__main__":
-    for k in POINT_GROUP_ENC.keys():
-        pg = PointGroup(k)
-        print "Order of point group %s is %d" % (k, len(pg.symmetry_ops))
-    #
-    # from sympy import symbols
-    # x, y, z = symbols("x y z")
-    # p = [x,y,z]
-    # pg = PointGroup("m-3m")
-    # for r in pg.get_orbit(p):
-    #     print r
-    # sg = SpaceGroup.from_int_number(1)
-    # print sg
-    for i in range(1, 231):
-        sg = SpaceGroup.from_int_number(i, False)
-        print sg
-
-
-    # print sg.symmetry_ops
-    #print len(sg.symmetry_ops)
-    #sg = SpaceGroup("Im-3m")
-    #print len(sg.symmetry_ops)
-    #profile_sg()
-
-
