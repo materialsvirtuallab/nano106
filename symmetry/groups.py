@@ -118,12 +118,12 @@ class SpaceGroup(SymmetryGroup):
 
     def __init__(self, int_symbol):
         """
-        Initializes a Point Group from its *full* international symbol.
+        Initializes a Space Group from its *full* international symbol.
 
         Args:
             int_symbol (str): Full International or Hermann-Mauguin Symbol.
-            The notation is a LaTeX-like string, with screw axes being
-            represented by an underscore. For example, "P6_3/mmc".
+                The notation is a LaTeX-like string, with screw axes being
+                represented by an underscore. For example, "P6_3/mmc".
         """
         self.symbol = int_symbol
         # TODO: Support different origin choices.

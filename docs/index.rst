@@ -56,6 +56,15 @@ developmental version, make sure you have nose installed and then just type::
 
 in the symmetry root directory.
 
+API docs
+--------
+
+.. toctree::
+   :maxdepth: 2
+
+   modules
+
+
 Acknowledgements
 ====================
 
