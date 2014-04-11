@@ -30,7 +30,7 @@ class PointGroupTest(unittest.TestCase):
 class SpaceGroupTest(unittest.TestCase):
 
     def test_order_symm_ops(self):
-        for name in SpaceGroup.SGNAMES:
+        for name in SpaceGroup.SG_SYMBOLS:
             sg = SpaceGroup(name)
             self.assertEqual(len(sg.symmetry_ops), sg.order)
 

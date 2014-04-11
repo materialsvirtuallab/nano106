@@ -124,7 +124,8 @@ class SpaceGroup(SymmetryGroup):
         Order of Space Group
     """
 
-    SGNAMES = tuple(SPACE_GROUP_ENC.keys())
+    #Contains the entire list of supported Space Group symbols.
+    SG_SYMBOLS = tuple(SPACE_GROUP_ENC.keys())
 
     def __init__(self, int_symbol):
         """
