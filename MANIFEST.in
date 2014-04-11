@@ -1,0 +1,4 @@
+include *.md LICENSE 
+recursive-include symmetry *.py *.json
+prune */*/tests
+prune */*/*/tests

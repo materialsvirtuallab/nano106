@@ -842,48 +842,48 @@ space_group_encoding:
   Pnnn:
     enc: 03bOOOcOOOhDDD1BBB
     int_number: 48
-  R-3:
+  R-3H:
     enc: 12aECCnOOO0
     int_number: 148
-  R-3c:
+  R-3cH:
     enc: 13aECCnOOOeOOD0
     int_number: 167
-  R-3c|167:
+  R-3c:
     enc: 12dOOOfDDD0
-    int_number: 237
-  R-3m:
+    int_number: 167
+  R-3mH:
     enc: 13aECCnOOOeOOO0
     int_number: 166
-  R-3m|166:
+  R-3m:
     enc: 12dOOOfOOO0
-    int_number: 236
-  R-3|148:
+    int_number: 166
+  R-3:
     enc: 11dOOO0
-    int_number: 232
-  R3:
+    int_number: 148
+  R3H:
     enc: 02aECCnOOO0
     int_number: 146
-  R32:
+  R32H:
     enc: 03aECCnOOOeOOO0
     int_number: 155
-  R32|155:
+  R32:
     enc: 02dOOOfOOO0
-    int_number: 233
-  R3c:
+    int_number: 155
+  R3cH:
     enc: 03aECCnOOOkOOD0
     int_number: 161
-  R3c|161:
+  R3c:
     enc: 02dOOOlDDD0
-    int_number: 235
-  R3m:
+    int_number: 161
+  R3mH:
     enc: 03aECCnOOOkOOO0
     int_number: 160
-  R3m|160:
+  R3m:
     enc: 02dOOOlOOO0
-    int_number: 234
-  R3|146:
+    int_number: 160
+  R3:
     enc: 01dOOO0
-    int_number: 231
+    int_number: 146
 translations:
   A: 1/6
   B: 1/4
