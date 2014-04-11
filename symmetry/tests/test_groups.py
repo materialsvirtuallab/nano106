@@ -34,5 +34,11 @@ class SpaceGroupTest(unittest.TestCase):
             sg = SpaceGroup.from_int_number(i, False)
             self.assertGreater(len(sg.symmetry_ops), 0)
 
+    def test_crystal_system(self):
+        sg = SpaceGroup("R-3c")
+        self.assertEqual(sg.crystal_system, "Trigonal")
+        sg = SpaceGroup("R-3cH")
+        self.assertEqual(sg.crystal_system, "Trigonal")
+
 if __name__ == '__main__':
     unittest.main()

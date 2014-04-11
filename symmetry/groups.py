@@ -135,7 +135,7 @@ class SpaceGroup(SymmetryGroup):
             symm_ops.append(np.array(
                 [[-1, 0, 0, 0], [0, -1, 0, 0], [0, 0, -1, 0],
                  [0, 0, 0, 1]]))
-        for i in xrange(ngen):
+        for i in range(ngen):
             m = np.eye(4)
             m[:3, :3] = GENERATOR_MATRICES[enc.pop(0)]
             m[0, 3] = TRANSLATIONS[enc.pop(0)]
@@ -174,6 +174,24 @@ class SpaceGroup(SymmetryGroup):
         if self._symmetry_ops is None:
             self._symmetry_ops = self._generate_full_symmetry_ops()
         return self._symmetry_ops
+
+    @property
+    def crystal_system(self):
+        i = self.int_number
+        if i <= 2:
+            return "Triclinic"
+        elif i <= 15:
+            return "Monoclinic"
+        elif i <= 74:
+            return "Orthorhombic"
+        elif i <= 142:
+            return "Tetragonal"
+        elif i <= 167:
+            return "Trigonal"
+        elif i <= 194:
+            return "Hexagonal"
+        else:
+            return "Cubic"
 
     def get_orbit(self, p):
         """
