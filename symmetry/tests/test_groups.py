@@ -15,7 +15,7 @@ __date__ = "4/10/14"
 
 import unittest
 
-from symmetry.groups import PointGroup, POINT_GROUP_ENC
+from symmetry.groups import PointGroup, SpaceGroup
 
 
 class PointGroupTest(unittest.TestCase):
@@ -29,11 +29,10 @@ class PointGroupTest(unittest.TestCase):
 
 class SpaceGroupTest(unittest.TestCase):
 
-    def test_something(self):
-        for k in POINT_GROUP_ENC.keys():
-            pg = PointGroup(k)
-            print "Order of point group %s is %d" % (k, len(pg.symmetry_ops))
-        #self.assertEqual(True, False)
+    def test_order(self):
+        for i in range(1, 231):
+            sg = SpaceGroup.from_int_number(i, False)
+            self.assertGreater(len(sg.symmetry_ops), 0)
 
 if __name__ == '__main__':
     unittest.main()
