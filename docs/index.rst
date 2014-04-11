@@ -62,7 +62,7 @@ API docs
 .. toctree::
    :maxdepth: 2
 
-   modules
+   symmetry
 
 
 Acknowledgements
