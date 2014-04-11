@@ -29,10 +29,10 @@ class PointGroupTest(unittest.TestCase):
 
 class SpaceGroupTest(unittest.TestCase):
 
-    def test_order(self):
+    def test_order_symm_ops(self):
         for i in range(1, 231):
             sg = SpaceGroup.from_int_number(i, False)
-            self.assertGreater(len(sg.symmetry_ops), 0)
+            self.assertEqual(len(sg.symmetry_ops), sg.order)
 
     def test_crystal_system(self):
         sg = SpaceGroup("R-3c")

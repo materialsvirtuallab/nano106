@@ -86,6 +86,7 @@ class PointGroup(SymmetryGroup):
         self.generators = [GENERATOR_MATRICES[c]
                            for c in POINT_GROUP_ENC[int_symbol]]
         self.symmetry_ops = self._generate_full_symmetry_ops()
+        self.order = len(self.symmetry_ops)
 
     def _generate_full_symmetry_ops(self):
         symm_ops = list(self.generators)
@@ -117,6 +118,10 @@ class SpaceGroup(SymmetryGroup):
 
         List of generator matrices. Note that 4x4 matrices are used for Space
         Groups.
+
+    .. attribute:: order
+
+        Order of Space Group
     """
 
     def __init__(self, int_symbol):
@@ -126,7 +131,9 @@ class SpaceGroup(SymmetryGroup):
         Args:
             int_symbol (str): Full International or Hermann-Mauguin Symbol.
                 The notation is a LaTeX-like string, with screw axes being
-                represented by an underscore. For example, "P6_3/mmc".
+                represented by an underscore. For example, "P6_3/mmc". Note
+                that for rhomohedral cells, the hexagonal setting can be
+                accessed by adding a "H", e.g., "R-3mH".
         """
         self.symbol = int_symbol
         # TODO: Support different origin choices.
@@ -147,6 +154,7 @@ class SpaceGroup(SymmetryGroup):
             symm_ops.append(m)
         self.generators = symm_ops
         self.int_number = SPACE_GROUP_ENC[int_symbol]["int_number"]
+        self.order = SPACE_GROUP_ENC[int_symbol]["order"]
         self._symmetry_ops = None
 
     def _generate_full_symmetry_ops(self):
@@ -262,6 +270,11 @@ def in_array_list(array_list, a, tol=1e-5):
     Extremely efficient nd-array comparison using numpy's broadcasting. This
     function checks if a particular array a, is present in a list of arrays.
     It works for arrays of any size, e.g., even matrix searches.
+
+    Args:
+        array_list: A list of arrays to compare to.
+        a: The test array for comparison.
+        tol: The tolerance. Defaults to 1e-5. If 0, an exact match is done.
     """
     if len(array_list) == 0:
         return False
@@ -270,3 +283,4 @@ def in_array_list(array_list, a, tol=1e-5):
         return np.any(np.all(np.equal(array_list, a[None, :]), axes))
     else:
         return np.any(np.sum(np.abs(array_list - a[None, :]), axes) < tol)
+
