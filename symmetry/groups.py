@@ -35,12 +35,15 @@ TRANSLATIONS = {k: Fraction(v) for k, v in SYMM_DATA["translations"].items()}
 
 class SymmetryGroup(object):
 
-    def get_orbit(self, p):
+    def get_orbit(self, p, tol=1e-5):
         """
         Returns the orbit for a point.
 
         Args:
             p: Point as a 3x1 array.
+            tol: Tolerance for determining if sites are the same. 1e-5 should
+                be sufficient for most purposes. Set to 0 for exact matching
+                (and also needed for symbolic orbits).
 
         Returns:
             ([array]) Orbit for point.
@@ -49,7 +52,7 @@ class SymmetryGroup(object):
         for o in self.symmetry_ops:
             pp = np.dot(o, p)
             pp = np.mod(pp, 1)
-            if not in_array_list(orbit, pp):
+            if not in_array_list(orbit, pp, tol=tol):
                 orbit.append(pp)
         return orbit
 
@@ -254,7 +257,7 @@ def sg_symbol_from_int_number(int_number, hexagonal=True):
     return syms.pop()
 
 
-def in_array_list(array_list, a):
+def in_array_list(array_list, a, tol=1e-5):
     """
     Extremely efficient nd-array comparison using numpy's broadcasting. This
     function checks if a particular array a, is present in a list of arrays.
@@ -263,4 +266,7 @@ def in_array_list(array_list, a):
     if len(array_list) == 0:
         return False
     axes = tuple(range(1, a.ndim + 1))
-    return np.any(np.sum(np.abs(array_list - a[None, :]), axes) < 1e-5)
+    if not tol:
+        return np.any(np.all(np.equal(array_list, a[None, :]), axes))
+    else:
+        return np.any(np.sum(np.abs(array_list - a[None, :]), axes) < tol)
