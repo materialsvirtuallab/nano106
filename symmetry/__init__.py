@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-TODO: Modify module doc.
+Library for materials symmetry analysis
 """
 
 from __future__ import division

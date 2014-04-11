@@ -21,11 +21,11 @@ from fractions import Fraction
 
 import numpy as np
 
-import yaml
+import json
 
 
-with open(os.path.join(os.path.dirname(__file__), "data.yaml")) as f:
-    SYMM_DATA = yaml.load(f)
+with open(os.path.join(os.path.dirname(__file__), "symm_data.json")) as f:
+    SYMM_DATA = json.load(f)
 
 GENERATOR_MATRICES = SYMM_DATA["generator_matrices"]
 POINT_GROUP_ENC = SYMM_DATA["point_group_encoding"]
