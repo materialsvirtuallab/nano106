@@ -43,10 +43,9 @@ class SpaceGroupTest(unittest.TestCase):
 
     def test_get_orbit(self):
         sg = SpaceGroup("Fm-3m")
-        for i in range(100):
-            p = np.random.random_integers(0, 100, size=(3,))
-            p /= 100
-            self.assertLessEqual(len(sg.get_orbit(p)), sg.order)
+        p = np.random.random_integers(0, 100, size=(3,))
+        p /= 100
+        self.assertLessEqual(len(sg.get_orbit(p)), sg.order)
 
 if __name__ == '__main__':
     unittest.main()
