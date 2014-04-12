@@ -165,11 +165,11 @@ class SpaceGroup(SymmetryGroup):
         for op in symm_ops:
             op[0:3, 3] = np.mod(op[0:3, 3], 1)
         new_ops = symm_ops
-        while len(new_ops) > 0 and len(symm_ops) < 192:
+        while len(new_ops) > 0 and len(symm_ops) < self.order:
             gen_ops = []
             for g in new_ops:
-                new_ops = np.einsum('ij...,...i', g, symm_ops)
-                for op in new_ops:
+                temp_ops = np.einsum('ijk,kl', symm_ops, g)
+                for op in temp_ops:
                     op[0:3, 3] = np.mod(op[0:3, 3], 1)
                     ind = np.where(np.abs(1 - op[0:3, 3]) < 1e-5)
                     op[ind, 3] = 0
