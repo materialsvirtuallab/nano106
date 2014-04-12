@@ -14,6 +14,7 @@ __email__ = "ongsp@ucsd.edu"
 __date__ = "4/10/14"
 
 import unittest
+import numpy as np
 
 from symmetry.groups import PointGroup, SpaceGroup
 
@@ -39,6 +40,13 @@ class SpaceGroupTest(unittest.TestCase):
         self.assertEqual(sg.crystal_system, "Trigonal")
         sg = SpaceGroup("R-3cH")
         self.assertEqual(sg.crystal_system, "Trigonal")
+
+    def test_get_orbit(self):
+        sg = SpaceGroup("Fm-3m")
+        for i in range(100):
+            p = np.random.random_integers(0, 100, size=(3,))
+            p = p / np.max(p)
+            self.assertLessEqual(len(sg.get_orbit(p)), sg.order)
 
 if __name__ == '__main__':
     unittest.main()
