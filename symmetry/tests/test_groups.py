@@ -46,7 +46,6 @@ class SpaceGroupTest(unittest.TestCase):
         for i in range(100):
             p = np.random.random_integers(0, 100, size=(3,))
             p /= 100
-            print len(sg.get_orbit(p))
             self.assertLessEqual(len(sg.get_orbit(p)), sg.order)
 
 if __name__ == '__main__':
