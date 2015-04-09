@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="latexinput" content="mmd-mavrldoc-header"/>
+	<title>NANO106 Handout 1 - Linear Algebra and Lattice Computations</title>
+	<meta name="author" content="Shyue Ping Ong"/>
+	<meta name="affiliation" content="University of California, San Diego"/>
+	<meta name="address" content="9500 Gilman Drive, Mail Code 0448, La Jolla, CA 92093-0448"/>
+	<meta name="web" content="http://www.materialsvirtuallab.org"/>
+	<meta name="latexmode" content="mavrldoc"/>
+	<meta name="latexinput" content="mmd-mavrldoc-begin-doc"/>
+	<meta name="latexfooter" content="mmd-mavrldoc-footer"/>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This document provides a summary of the basic linear algebra concepts and their application in crystallography.</p>
+
+<h2 id="notationanddefinitions">Notation and definitions</h2>
+
+<p>Let us define a series of consistent notations. Note that all vectors are written in <em>column</em> format for consistency. All vectors are <strong>bolded</strong>.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Quantity</th>
+	<th style="text-align:left;">Notation</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Lattice basis vectors</td>
+	<td style="text-align:left;"><span class="math">\(\mathbf{a_1}\)</span>, <span class="math">\(\mathbf{a_2}\)</span>, <span class="math">\(\mathbf{a_3}\)</span> or <span class="math">\(\mathbf{a}\)</span>, <span class="math">\(\mathbf{b}\)</span>, <span class="math">\(\mathbf{c}\)</span></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Cartesian coordinate vectors</td>
+	<td style="text-align:left;"><span class="math">\(\mathbf{x}\)</span> or <span class="math">\(\mathbf{y}\)</span></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Crystal coordinate vectors</td>
+	<td style="text-align:left;"><span class="math">\(\mathbf{p}\)</span> or <span class="math">\(\mathbf{q}\)</span></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Metric tensor</td>
+	<td style="text-align:left;"><span class="math">\(g\)</span></td>
+</tr>
+</tbody>
+</table>
+
+<p><span class="math">\[\textbf{x} = \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\]</span>
+<span class="math">\[\textbf{p} = \begin{pmatrix}p_1\\p_2\\p_3\end{pmatrix}\]</span></p>
+
+<p>For matrices, we will use simple <span class="math">\(A\)</span> and <span class="math">\(B\)</span> to denote them. <span class="math">\(E\)</span> refers to the
+identity matrix. In the full form, we denote each element as <span class="math">\(a_{ij}\)</span>. E.g.</p>
+
+<p><span class="math">\[ A = \begin{pmatrix}a_{11} & a_{12} & a_{13}\\ a_{21} & a_{22} & a_{23}\\ a_{31} & a_{32} & a_{33}\end{pmatrix}
+\]</span></p>
+
+<h2 id="requiredlinearalgebrarelations">Required Linear Algebra Relations</h2>
+
+<h3 id="normofavectorincartesiancoordinates">Norm of a vector in Cartesian coordinates</h3>
+
+<p><span class="math">\[|\mathbf{x}| = \sqrt{\mathbf{x} \cdot \mathbf{x}} = \sqrt{x_1^2 + x_2^2 + x_3^2}\]</span></p>
+
+<h3 id="dotproductincartesiancoordinates">Dot product in Cartesian coordinates</h3>
+
+<p><span class="math">\[ \mathbf{x} \cdot \mathbf{y} = \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix} \cdot \begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} = x_1y_1 + x_2y_2 + x_3y_3 =
+|\mathbf{x}||\mathbf{y}| \cos \theta
+\]</span></p>
+
+<p>Finding the angle between two vectors in Cartesian coordinates
+<span class="math">\[
+\theta = \cos^{-1}\frac{\mathbf{x}\cdot\mathbf{y}}{|\mathbf{x}||\mathbf{y}|}
+\]</span></p>
+
+<h3 id="crossproductincartesiancoordinates">Cross product in Cartesian coordinates</h3>
+
+<p><span class="math">\[ \mathbf{x} \times \mathbf{y} = \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix} \times \begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} = \begin{pmatrix}x_2y_3 - x_3y_2\\-(x_1y_3 - x_3y_1)\\x_1y_2 - x_2y_1\end{pmatrix}
+\]</span></p>
+
+<h3 id="somematrixrelations">Some matrix relations</h3>
+
+<p><span class="math">\[ (AB)^T = B^TA^T \]</span>
+<span class="math">\[(A + B) C = AC + BC\]</span>
+<span class="math">\[AA^{-1} = A^{-1}A = E \]</span></p>
+
+<h3 id="findingthedeterminantandinverseofa3times3matrix.">Finding the determinant and inverse of a <span class="math">\(3 \times 3\)</span> matrix.</h3>
+
+<p><span class="math">\[
+det(A) = \begin{vmatrix}a_{11} & a_{12} & a_{13}\\ a_{21} & a_{22} & a_{23}\\ a_{31} & a_{32} & a_{33}\end{vmatrix} = a_{11} (a_{22}a_{33}-a_{32}a_{23}) -
+a_{12} (a_{21}a_{33}-a_{31}a_{23}) + a_{13} (a_{21}a_{32}-a_{31}a_{22})
+\]</span></p>
+
+<p><span class="math">\[
+A^{-1} = \frac{1}{det(A)}\begin{pmatrix}a_{22}a_{33}-a_{32}a_{23} & -(a_{21}a_{33}-a_{31}a_{23}) & a_{21}a_{32}-a_{31}a_{22}\\ -(a_{12}a_{33}-a_{32}a_{13} & a_{11}a_{33}-a_{31}a_{13} & -(a_{11}a_{32}-a_{31}a_{12})\\ a_{12}a_{23}-a_{22}a_{13} & -(a_{11}a_{23}-a_{21}a_{13}) & a_{11}a_{22}-a_{21}a_{12}\end{pmatrix}
+\]</span></p>
+
+<h2 id="crystalcoordinates">Crystal Coordinates</h2>
+
+<p>Given a lattice with basis vectors <span class="math">\(\mathbf{a}\)</span>, <span class="math">\(\mathbf{b}\)</span>, <span class="math">\(\mathbf{c}\)</span>,
+any point in the lattice can be represented in <em>crystal coordinates</em> <span class="math">\([uvw]\)</span>.
+The conversion from crystal coordinates to Cartesian coordinates is given as:</p>
+
+<p><span class="math">\[
+\mathbf{x} = u \mathbf{a} + v \mathbf{b} + w \mathbf{c}
+\]</span></p>
+
+<h2 id="calculatinglatticeparameters">Calculating lattice parameters</h2>
+
+<p>Given a set of basis vectors <span class="math">\(\mathbf{a}\)</span>, <span class="math">\(\mathbf{b}\)</span>, <span class="math">\(\mathbf{c}\)</span>, the lattice parameters are given by:</p>
+
+<p><span class="math">\[
+a = |\mathbf{a}|\\
+b = |\mathbf{b}|\\
+c = |\mathbf{c}|\\
+\alpha = \cos^{-1}\frac{\mathbf{b}\cdot\mathbf{c}}{|\mathbf{b}||\mathbf{c}|}\\
+\beta = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{c}}{|\mathbf{a}||\mathbf{c}|}\\
+\gamma = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}||\mathbf{b}|}
+\]</span></p>
+
+<h2 id="relationsincrystalcoordinates">Relations in crystal coordinates</h2>
+
+<p>For a lattice with basis vectors <span class="math">\(\mathbf{a}\)</span>, <span class="math">\(\mathbf{b}\)</span>, <span class="math">\(\mathbf{c}\)</span>, the
+metric tensor <span class="math">\(g\)</span> is given by:</p>
+
+<p><span class="math">\[
+g = \begin{pmatrix}\mathbf{a}\cdot\mathbf{a} & \mathbf{a}\cdot\mathbf{b}  & \mathbf{a}\cdot\mathbf{c} \\ \mathbf{b}\cdot\mathbf{a} & \mathbf{b}\cdot\mathbf{b} & \mathbf{b}\cdot\mathbf{c} \\ \mathbf{c}\cdot\mathbf{a}  & \mathbf{c}\cdot\mathbf{b}  & \mathbf{c}\cdot\mathbf{c} \end{pmatrix} =
+\begin{pmatrix} a^2 & ab \cos \gamma  &  ac \cos \beta \\  ab \cos \gamma &  b^2 &  bc \cos \alpha \\  ac \cos \beta  &  bc \cos \alpha  &  c^2 \end{pmatrix}
+\]</span></p>
+
+<h3 id="dotproductincrystalcoordinates">Dot product in crystal coordinates</h3>
+
+<p>It is important to note that dot products between crystal coordinates is not
+performed the same way as in Cartesian! You need to use the metric tensor to
+perform dot products. The dot product is given by:</p>
+
+<p><span class="math">\[
+\mathbf{p}^Tg\mathbf{q}
+\]</span></p>
+
+<h3 id="distanceincrystalcoordinates">Distance in crystal coordinates</h3>
+
+<p>For two points defined by <span class="math">\(\mathbf{p}\)</span> and <span class="math">\(\mathbf{q}\)</span> in crystal coordinates,</p>
+
+<p><span class="math">\[
+d^2 = (\mathbf{q} - \mathbf{p})^Tg(\mathbf{q} - \mathbf{p})\\
+d = \sqrt{(\mathbf{q} - \mathbf{p})^Tg(\mathbf{q} - \mathbf{p})}
+\]</span></p>
+
+<h3 id="anglesincrystalcoordinates">Angles in crystal coordinates</h3>
+
+<p>For three points O, P and Q defined by <span class="math">\(\mathbf{o}\)</span>, <span class="math">\(\mathbf{p}\)</span>, and <span class="math">\(\mathbf{q}\)</span> in crystal coordinates respectively,</p>
+
+<p><span class="math">\[
+\vec{OP} = \mathbf{p} - \mathbf{o}\\
+\vec{OQ} = \mathbf{q} - \mathbf{o}\\
+\hat{POQ} = \cos^{-1} \frac{\vec{OP}^Tg\vec{OQ}}{|\vec{OP}||\vec{OQ}|}
+\]</span></p>
+
+</body>
+</html>
