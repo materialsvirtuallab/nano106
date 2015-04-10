@@ -44,8 +44,12 @@ identity matrix. In the full form, we denote each element as $a_{ij}$. E.g.
 
 ## Dot product in Cartesian coordinates
 
-\\[ \mathbf{x} \cdot \mathbf{y} = \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix} \cdot \begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} = x_1y_1 + x_2y_2 + x_3y_3 =
-|\mathbf{x}||\mathbf{y}| \cos \theta
+\\[
+\begin{aligned}
+\mathbf{x} \cdot \mathbf{y} &= \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix} \cdot \begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix}\\
+&= x_1y_1 + x_2y_2 + x_3y_3\\
+& = |\mathbf{x}||\mathbf{y}| \cos \theta
+\end{aligned}
 \\]
 
 Finding the angle between two vectors in Cartesian coordinates
@@ -67,12 +71,15 @@ Finding the angle between two vectors in Cartesian coordinates
 ## Finding the determinant and inverse of a $3 \times 3$ matrix.
 
 \\[
-det(A) = \begin{vmatrix}a_{11} & a_{12} & a_{13}\\ a_{21} & a_{22} & a_{23}\\ a_{31} & a_{32} & a_{33}\end{vmatrix} = a_{11} (a_{22}a_{33}-a_{32}a_{23}) -
+\begin{aligned}
+\det(A) &= \begin{vmatrix}a_{11} & a_{12} & a_{13}\\ a_{21} & a_{22} & a_{23}\\ a_{31} & a_{32} & a_{33}\end{vmatrix}
+\\&= a_{11} (a_{22}a_{33}-a_{32}a_{23}) -
 a_{12} (a_{21}a_{33}-a_{31}a_{23}) + a_{13} (a_{21}a_{32}-a_{31}a_{22})
+\end{aligned}
 \\]
 
 \\[
-A^{-1} = \frac{1}{det(A)}\begin{pmatrix}a_{22}a_{33}-a_{32}a_{23} & -(a_{21}a_{33}-a_{31}a_{23}) & a_{21}a_{32}-a_{31}a_{22}\\ -(a_{12}a_{33}-a_{32}a_{13} & a_{11}a_{33}-a_{31}a_{13} & -(a_{11}a_{32}-a_{31}a_{12})\\ a_{12}a_{23}-a_{22}a_{13} & -(a_{11}a_{23}-a_{21}a_{13}) & a_{11}a_{22}-a_{21}a_{12}\end{pmatrix}
+A^{-1} = \frac{1}{\det(A)}\begin{pmatrix}a_{22}a_{33}-a_{32}a_{23} & -(a_{21}a_{33}-a_{31}a_{23}) & a_{21}a_{32}-a_{31}a_{22}\\ -(a_{12}a_{33}-a_{32}a_{13} & a_{11}a_{33}-a_{31}a_{13} & -(a_{11}a_{32}-a_{31}a_{12})\\ a_{12}a_{23}-a_{22}a_{13} & -(a_{11}a_{23}-a_{21}a_{13}) & a_{11}a_{22}-a_{21}a_{12}\end{pmatrix}
 \\]
 
 # Crystal Coordinates
@@ -89,12 +96,15 @@ The conversion from crystal coordinates to Cartesian coordinates is given as:
 
 Given a set of basis vectors $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$, the lattice parameters are given by:
 
-\\[a = |\mathbf{a}|\\]
-\\[b = |\mathbf{b}|\\]
-\\[c = |\mathbf{c}|\\]
-\\[\alpha = \cos^{-1}\frac{\mathbf{b}\cdot\mathbf{c}}{|\mathbf{b}||\mathbf{c}|}\\]
-\\[\beta = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{c}}{|\mathbf{a}||\mathbf{c}|}\\]
-\\[\gamma = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}||\mathbf{b}|}
+\\[
+\begin{aligned}
+a & = |\mathbf{a}|\\
+b & = |\mathbf{b}|\\
+c & = |\mathbf{c}|\\
+\alpha & = \cos^{-1}\frac{\mathbf{b}\cdot\mathbf{c}}{|\mathbf{b}||\mathbf{c}|}\\
+\beta & = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{c}}{|\mathbf{a}||\mathbf{c}|}\\
+\gamma & = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}||\mathbf{b}|}
+\end{aligned}
 \\]
 
 # Relations in crystal coordinates
@@ -122,8 +132,10 @@ perform dot products. The dot product is given by:
 For two points defined by $\mathbf{p}$ and $\mathbf{q}$ in crystal coordinates,
 
 \\[
-d^2 = (\mathbf{q} - \mathbf{p})^Tg(\mathbf{q} - \mathbf{p})\\
-d = \sqrt{(\mathbf{q} - \mathbf{p})^Tg(\mathbf{q} - \mathbf{p})}
+\begin{aligned}
+d^2 &= (\mathbf{q} - \mathbf{p})^Tg(\mathbf{q} - \mathbf{p})\\
+d &= \sqrt{(\mathbf{q} - \mathbf{p})^Tg(\mathbf{q} - \mathbf{p})}
+\end{aligned}
 \\]
 
 ## Angles in crystal coordinates
@@ -131,8 +143,10 @@ d = \sqrt{(\mathbf{q} - \mathbf{p})^Tg(\mathbf{q} - \mathbf{p})}
 For three points O, P and Q defined by $\mathbf{o}$, $\mathbf{p}$, and $\mathbf{q}$ in crystal coordinates respectively,
 
 \\[
-\vec{OP} = \mathbf{p} - \mathbf{o}\\
-\vec{OQ} = \mathbf{q} - \mathbf{o}\\
-\hat{POQ} = \cos^{-1} \frac{\vec{OP}^Tg\vec{OQ}}{|\vec{OP}||\vec{OQ}|}
+\begin{aligned}
+\vec{OP} & = \mathbf{p} - \mathbf{o}\\
+\vec{OQ} & = \mathbf{q} - \mathbf{o}\\
+\hat{POQ} & = \cos^{-1} \frac{\vec{OP}^Tg\vec{OQ}}{|\vec{OP}||\vec{OQ}|}
+\end{aligned}
 \\]
 
