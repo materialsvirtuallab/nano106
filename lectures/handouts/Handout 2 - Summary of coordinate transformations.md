@@ -8,7 +8,7 @@ Base Header Level:  2
 LaTeX Mode:         mavrldoc
 LaTeX input:        mmd-mavrldoc-begin-doc
 LaTeX footer:       mmd-mavrldoc-footer
-
+xhtml header:       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 # Introduction
 
