@@ -87,13 +87,12 @@ The conversion from crystal coordinates to Cartesian coordinates is given as:
 
 Given a set of basis vectors $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$, the lattice parameters are given by:
 
-\\[
-a = |\mathbf{a}|\\
-b = |\mathbf{b}|\\
-c = |\mathbf{c}|\\
-\alpha = \cos^{-1}\frac{\mathbf{b}\cdot\mathbf{c}}{|\mathbf{b}||\mathbf{c}|}\\
-\beta = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{c}}{|\mathbf{a}||\mathbf{c}|}\\
-\gamma = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}||\mathbf{b}|}
+\\[a = |\mathbf{a}|\\]
+\\[b = |\mathbf{b}|\\]
+\\[c = |\mathbf{c}|\\]
+\\[\alpha = \cos^{-1}\frac{\mathbf{b}\cdot\mathbf{c}}{|\mathbf{b}||\mathbf{c}|}\\]
+\\[\beta = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{c}}{|\mathbf{a}||\mathbf{c}|}\\]
+\\[\gamma = \cos^{-1}\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}||\mathbf{b}|}
 \\]
 
 # Relations in crystal coordinates
