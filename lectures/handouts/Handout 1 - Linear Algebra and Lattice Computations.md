@@ -17,7 +17,8 @@ This document provides a summary of the basic linear algebra concepts and their 
 
 # Notation and definitions
 
-Let us define a series of consistent notations. Note that all vectors are written in *column* format for consistency. All vectors are **bolded**.
+Let us define a series of consistent notations. Note that all vectors are
+written in *column* format for consistency. All vectors are **bolded**.
 
 | Quantity | Notation |
 | -------- | -------- |
