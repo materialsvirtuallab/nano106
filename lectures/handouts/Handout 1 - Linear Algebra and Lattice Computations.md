@@ -104,13 +104,45 @@ a_{12} (a_{21}a_{33}-a_{31}a_{23}) + a_{13} (a_{21}a_{32}-a_{31}a_{22})
 
 # Crystal Coordinates
 
-Given a lattice with basis vectors $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$,
-any point in the lattice can be represented in *crystal coordinates* $[uvw]$.
+![Crystal vs Cartesian coordinates](CrystalvsCartesian.pdf)
+
+Refer to the figure above. The figure on the left represents a crystal. In general,
+the lattice vectors $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$ may not be orthogonal to 
+each other, and are not of unit length. On the right, we have the Cartesian 
+coordinate system where the basis vectors are orthogonal and unit length.
+
+Consider the point P in the crystal, which has *crystal coordinates* denoted by
+[u, v, w]. In the example above, the crystal coordinates are [0.25, 0.25, 0.25].
 The conversion from crystal coordinates to Cartesian coordinates is given as:
 
 \\[
 \mathbf{x} = u \mathbf{a} + v \mathbf{b} + w \mathbf{c}
 \\]
+
+For the sake of illustration, let's say the lattice vectors, when expressed in the 
+Cartesian coordinate system are:
+
+\\[
+\begin{aligned}
+\mathbf{a} = \begin{pmatrix}2\\0\\0\end{pmatrix},
+\mathbf{b} = \begin{pmatrix}-1\\3\\0\end{pmatrix},
+\mathbf{c} = \begin{pmatrix}0\\0\\4\end{pmatrix}
+\end{aligned}
+\\]
+
+The Cartesian coordinates of point P are then:
+
+\\[
+\mathbf{x} = 0.25 \begin{pmatrix}2\\0\\0\end{pmatrix} + 0.25 \begin{pmatrix}-1\\3\\0\end{pmatrix} + 0.25 \begin{pmatrix}0\\0\\4\end{pmatrix} = \begin{pmatrix}0.25\\0.75\\1\end{pmatrix}
+\\]
+
+Note that the **crystal coordinates are different from the Cartesian coordinates**.
+The crystal coordinates are the coordinates defined in the vector space formed by the
+lattice vectors. In crystallography, you frequently work with crystal coordinates.
+To compute things like distances, angles, etc. you can either convert your crystal
+coordinates to Cartesian first before using your usual Cartesian relations, or you 
+can use the metric tensor to perform the necessary dot products and distances 
+computations directly from your crystal coordinates.
 
 # Calculating lattice parameters
 
@@ -139,9 +171,9 @@ g = \begin{pmatrix}\mathbf{a}\cdot\mathbf{a} & \mathbf{a}\cdot\mathbf{b}  & \mat
 
 ## Dot product in crystal coordinates
 
-It is important to note that dot products between crystal coordinates is not
-performed the same way as in Cartesian! You need to use the metric tensor to
-perform dot products. The dot product is given by:
+Dot products between crystal coordinates is not performed the same way as in 
+Cartesian! You need to use the metric tensor to perform dot products. The dot product 
+is given by:
 
 \\[
 \mathbf{p}^Tg\mathbf{q}
