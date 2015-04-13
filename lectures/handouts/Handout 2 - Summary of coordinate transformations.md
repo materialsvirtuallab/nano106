@@ -46,7 +46,7 @@ The following table summarizes all the coordinate transformas. Be very careful t
 
 | Transformation | Old basis-> New basis | New basis-> Old basis |
 | -------------- | --------------------- | --------------------- |
-|Postion/Vector -> Position/Vector|$\mathbf{p'}^T = \mathbf{p}^T\mathbf{C}^{-1}$|$\mathbf{p} = \mathbf{p'}^T\mathbf{C}$|
+|Postion/Vector -> Position/Vector|$\mathbf{p'}^T = \mathbf{p}^T\mathbf{C}^{-1}$|$\mathbf{p}^T = \mathbf{p'}^T\mathbf{C}$|
 |Postion/Vector -> Reciprocal Position/Vector|$\mathbf{p^*}^T = \mathbf{p}^Tg$|$\mathbf{p}^T = \mathbf{p^*}^Tg^{-1}$|
 |Reciprocal Postion/Vector -> Reciprocal Position/Vector|$\mathbf{p^*}' = \mathbf{C}\mathbf{p^*}$|$\mathbf{p^*} = \mathbf{C}^{-1}\mathbf{p^*}'$|
 |Metric Tensor -> Metric Tensor|$g' = \mathbf{C}g\mathbf{C}^T$|$g = \mathbf{C}^{-1}g'(\mathbf{C}^{-1})^T$|
