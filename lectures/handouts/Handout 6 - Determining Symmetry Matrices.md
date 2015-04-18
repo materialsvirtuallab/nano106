@@ -16,6 +16,8 @@ This document outlines how you determine crystal summary matrices. Two fairly
 complicated examples are provided to demonstrate the procedure in addition to
 the lecture slides.
 
+# General Procedure
+
 Let us first outline the general procedure.
 
 1. Find an appropriate crystal system for the symmetry operation. This is
@@ -31,7 +33,7 @@ Let us first outline the general procedure.
    to your old ones.
 6. The transpose of the transformation matrix is your crystal symmetry matrix.
 
-![Symmetry operations on crystal axes](SymmetryOperationsOnCrystal.pdf)
+![Example of symmetry operations on crystal axes.](SymmetryOperationsOnCrystal.pdf)
 
 # Example 1: Six-fold rotation in hexagonal crystal
 
@@ -86,9 +88,9 @@ Step 5: We may express the above relationships as the following matrix operation
 \begin{pmatrix}\mathbf{a}\\\mathbf{b}\\\mathbf{c}\end{pmatrix}
 \\]
 
-Step 6: Taking the transpose of the transformation matrix, we have the rotation
+Step 6: Taking the transpose of the transformation matrix, we have the symmetry
 matrix as:
 
 \\[
-D(m_diagonal) = \begin{pmatrix}0 & 1 & 0\\1 & 0 & 0\\0 & 0 & 1\end{pmatrix}
+D(m_d) = \begin{pmatrix}0 & 1 & 0\\1 & 0 & 0\\0 & 0 & 1\end{pmatrix}
 \\]
