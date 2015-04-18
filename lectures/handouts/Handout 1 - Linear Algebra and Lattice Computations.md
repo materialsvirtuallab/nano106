@@ -111,9 +111,10 @@ the lattice vectors $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$ may not be orthogon
 each other, and are not of unit length. On the right, we have the Cartesian 
 coordinate system where the basis vectors are orthogonal and unit length.
 
-Consider the point P in the crystal, which has *crystal coordinates* denoted by
-[u, v, w]. In the example above, the crystal coordinates are [0.25, 0.25, 0.25].
-The conversion from crystal coordinates to Cartesian coordinates is given as:
+Consider the point P in the crystal, which has *crystal coordinates* (also known
+as *fractional* or *direct* coordinates) denoted by [u, v, w]. In the example
+above, the crystal coordinates are [0.25, 0.25, 0.25]. The conversion from
+crystal coordinates to Cartesian coordinates is given as:
 
 \\[
 \mathbf{x} = u \mathbf{a} + v \mathbf{b} + w \mathbf{c}

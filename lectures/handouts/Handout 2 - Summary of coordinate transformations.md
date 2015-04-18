@@ -38,7 +38,7 @@ or more compactly as:
 
 $$\mathbf{A'} = \mathbf{C} \mathbf{A}$$
 
-In the new coordinate ssytem, we add a $'$, e.g., $\mathbf{p'}$ denotes the crystal coordinates in the new basis.
+In the new coordinate system, we add a $'$, e.g., $\mathbf{p'}$ denotes the crystal coordinates in the new basis.
 
 # Transformation relations
 
@@ -50,9 +50,5 @@ The following table summarizes all the coordinate transformas. Be very careful t
 |Postion/Vector -> Reciprocal Position/Vector|$\mathbf{p^*}^T = \mathbf{p}^Tg$|$\mathbf{p}^T = \mathbf{p^*}^Tg^{-1}$|
 |Reciprocal Postion/Vector -> Reciprocal Position/Vector|$\mathbf{p^*}' = \mathbf{C}\mathbf{p^*}$|$\mathbf{p^*} = \mathbf{C}^{-1}\mathbf{p^*}'$|
 |Metric Tensor -> Metric Tensor|$g' = \mathbf{C}g\mathbf{C}^T$|$g = \mathbf{C}^{-1}g'(\mathbf{C}^{-1})^T$|
-
-
-
-
 
 
