@@ -132,3 +132,15 @@ for completeness in case you see this in future.
 \\[
 \mathbf{a} \times \mathbf{b} = \epsilon_{ijk} a_i b_j \mathbf{e_k}
 \\]
+
+## Proof of triple product using Einstein notation
+
+\\[
+\begin{aligned}
+\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) & = a_i \mathbf{e_i} \cdot \epsilon_{jkm} b_j c_k \mathbf{e_m}\\
+& = \epsilon_{jkm} a_i b_j c_k \mathbf{e_i} \cdot \mathbf{e_m}\\
+& = \epsilon_{jkm} a_i b_j c_k \delta_{im}\\
+& = \epsilon_{jki} a_i b_j c_k\\
+& = \epsilon_{ijk} a_i b_j c_k\\
+\end{aligned}
+\\]
