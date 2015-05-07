@@ -1,5 +1,5 @@
 LaTeX input:        mmd-mavrldoc-header
-Title:              NANO106 Handout 9 - Einstein Notation
+Title:              NANO106 Handout 10 - Einstein Notation
 Author:             Shyue Ping Ong
 Affiliation:        University of California, San Diego
 Address:            9500 Gilman Drive, Mail Code 0448, La Jolla, CA 92093-0448
@@ -15,7 +15,7 @@ xhtml header:       <script type="text/javascript" src="https://cdn.mathjax.org/
 The Einstein notation, or Einstein summation convention, is a convention that
 implies summation over repeated indices. It allows us to write many
 relationships in a more succinct manner. For the purposes of crystallography,
-we will mainly be working with the range of indices over the set {1, 2, 3}. 
+we will mainly be working with the range of indices over the set {1, 2, 3}.
 Therefore,
 
 \\[
@@ -100,7 +100,7 @@ for completeness in case you see this in future.
 
 # Cross-product in Einstein notation
 
-If $\mathbf{e_1}$, $\mathbf{e_2}$, and $\mathbf{e_3}$ are the Cartesian unit 
+If $\mathbf{e_1}$, $\mathbf{e_2}$, and $\mathbf{e_3}$ are the Cartesian unit
 vectors, the cross product of two vectors can be written in Einstein notation as:
 
 \\[
@@ -145,7 +145,7 @@ Some examples of denoting relationships using Einstein notation.
 
 # Transformation of Tensors
 
-If we denote $\mathbf{A}$ as the direction cosine matrix relating one set of 
+If we denote $\mathbf{A}$ as the direction cosine matrix relating one set of
 Cartesian axes to another, i.e.,
 
 \\[
@@ -168,6 +168,6 @@ r_{ijk\ldots}' = a_{iI} a_{jJ} a_{kK} \ldots r_{IJK\ldots}
 \\]
 
 Note that the capital letters on the RHS are repeated indices and hence represents
-summation. For a rank-2 tensor, the concise notation summarizes  $9 \times 9 = 81$ 
-terms. For a rank-3 tensor, there are 729 terms,  and for rank-4, there are 6561 
+summation. For a rank-2 tensor, the concise notation summarizes  $9 \times 9 = 81$
+terms. For a rank-3 tensor, there are 729 terms,  and for rank-4, there are 6561
 terms!
