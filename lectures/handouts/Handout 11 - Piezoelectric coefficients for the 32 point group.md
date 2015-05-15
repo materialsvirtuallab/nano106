@@ -21,6 +21,19 @@ The IEEE standard setting for the $32$ point group is given above. The
 3-fold rotation is oriented parallel to $Z_3$ and one of the 2-fold
 rotations is oriented parallel to $Z_1$.
 
+# General procedure for deriving symmetry restrictions
+
+The general procedure for deriving symmetry restrictions in tensors is given
+below.
+
+1. Convert from Voigt to tensor notation if necessary. This is only required
+   if you are working with higher-order tensors that utilizes the Voigt matrix
+   form.
+2. Determine the mapping of axes for the symmetry operations of the point
+   group.
+3. Apply mapping to tensor elements and Neumann's Principle.
+4. Determine equalities and elements with value 0.
+
 # Piezoelectric matrix and tensor
 
 The piezoelectric matrix has the following Voigt form:
@@ -32,9 +45,8 @@ d_{31} & d_{32} & d_{33} & d_{34} & d_{35} & d_{36}
 \end{pmatrix}
 \\]
 
-
 If we explicitly write out all the elements in terms of the tensor elements,
-we have
+we have:
 
 \\[
 \begin{pmatrix}
@@ -90,7 +102,7 @@ that have an odd number of indices 2 and 3 will be constrained to be 0 by the
 \\[
 \begin{aligned}
 d_{113} = d_{131} = d_{112} = d_{121} = d_{211} = d_{222} = d_{233} =  d_{223} = d_{232} = d_{311} = d_{322} = d_{333} = d_{323} = d_{332} = 0\\
-\implies d_{15} = d_{16} = d_{21} = d_{22} = d_{23} = d_{24} = d_{31} = d_{32} = d_{33} = d_{34} = 0
+\implies d_{15} = d_{16} = d_{21} = d_{22} = d_{23} = d_{24} = d_{31} = d_{32} = d_{33} = d_{34} = 0 \mbox{ (after conversion to Voigt form) }
 \end{aligned}
 \\]
 
@@ -126,7 +138,7 @@ X_3' & = X_3
 
 ## Constraints on $d_{13}$
 
-Let us start with some "simple" ones first.
+Let us start with some of the simpler relationships first.
 
 For $d_{13}$, we have $d_{13} \rightarrow d_{133}$ (Voigt to tensor).
 $d_{133}$ transforms as:
@@ -136,9 +148,10 @@ $d_{133}$ transforms as:
 X_1'X_3'X_3' & = (-\frac{1}{2} X_1 - \frac{\sqrt{3}}{2} X_2)X_3X_3\\
 & = -\frac{1}{2} X_1 X_3 X_3 - \frac{\sqrt{3}}{2} X_2 X_3 X_3 \\
 \implies d_{133}' & = -\frac{1}{2} d_{133} - \frac{\sqrt{3}}{2} d_{233}\\
-\implies d_{133}' & = -\frac{1}{2} d_{133} \mbox{($d_{233}$ was shown to be zero earlier)} = d_{133}\\
-\implies d_{133} = 0\\
-\implies d_{13} = 0
+\implies d_{133}' & = -\frac{1}{2} d_{133} \mbox{ ($d_{233}$ was shown to be zero earlier) }\\
+\implies  -\frac{1}{2} d_{133} & = d_{133} \mbox{ (Neumann's Principle) }\\
+\implies d_{133} & = 0\\
+\implies d_{13} & = 0
 \end{aligned}
 \\]
 
@@ -153,9 +166,9 @@ X_3'X_1'X_3' & = X_3(-\frac{1}{2} X_1 - \frac{\sqrt{3}}{2} X_2)X_3\\
 & = -\frac{1}{2} X_3 X_1 X_3 - \frac{\sqrt{3}}{2} X_3 X_2 X_3 \\
 \implies d_{313}' & = -\frac{1}{2} d_{313} - \frac{\sqrt{3}}{2} d_{323}\\
 \implies d_{313}' & = -\frac{1}{2} d_{313} \mbox{ ($d_{323}$ was shown to be zero earlier)} = d_{313}\\
-\implies d_{313} = 0\\
-\mbox{Similarly, } d_{331} = 0\\
-\implies d_{35} = 0
+\implies d_{313} & = 0\\
+\mbox{Similarly, } d_{331} & = 0\\
+\implies d_{35} & = 0
 \end{aligned}
 \\]
 
@@ -172,13 +185,13 @@ X_3'X_1'X_2' & = X_3(-\frac{1}{2} X_1 - \frac{\sqrt{3}}{2} X_2)(\frac{\sqrt{3}}{
 \end{aligned}
 \\]
 
-Zeroing out the elements we have determined earlier and applying Neumann's 
+Zeroing out the elements we have determined earlier and applying Neumann's
 Principle, we have
 
 \\[
 \begin{aligned}
 d_{312}' & = \frac{1}{4} d_{312} - \frac{3}{4} d_{321} = d_{312}\\
-\implies d_{312} = - d_{321}
+\implies d_{312} & = - d_{321}
 \end{aligned}
 \\]
 
@@ -250,7 +263,7 @@ d_{12}' = -\frac{3}{8} d_{11} - \frac{1}{8} d_{12} + \frac{3}{8} d_{26} = d_{12}
 \end{aligned}
 \\]
 
-Combining the relation derived for $d_{11}$ and $d_{12}$, we get:
+Combining the relations derived for $d_{11}$ and $d_{12}$, we get:
 
 \\[
 \begin{aligned}
@@ -272,16 +285,8 @@ d_{11} & -d_{11} & 0 & d_{14} & 0 & 0\\
 \end{pmatrix}
 \\]
 
-In general, this is a more involved process than usual because the trigonal 3-fold
-rotation does not align with orthogonal axes. For 4-fold symmetry, the process is
-considerably simpler. But it is useful to go through this, which illustrates all the
-key steps of deriving symmetry restrictions:
-
-1. Convert from Voigt to tensor notation
-2. Determine the mapping of axes for the symmetry operations.
-3. Apply mapping to tensor elements and Neumann's Principle.
-4. Determine equalities and elements with value 0.
-
-
+In general, this is a more involved process than usual because the trigonal
+3-fold rotation does not align with orthogonal axes. For 4-fold symmetry, the
+process is considerably simpler. But it is useful to go through this, which illustrates all the key steps of deriving symmetry restrictions.
 
 [The 32 point group]: 32.png "The 32 point group" width=150px
