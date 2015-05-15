@@ -10,8 +10,6 @@ LaTeX input:        mmd-mavrldoc-begin-doc
 LaTeX footer:       mmd-mavrldoc-footer
 xhtml header:       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Introduction
-
 In this handout, we will go through the full exercise of deriving the form of
 the piezoelectric matrix for the 32 point group, which is fairly complex.
 
@@ -68,7 +66,7 @@ transforms as:
 \\[
 \begin{aligned}
 X_1'X_1'X_1' & = X_1 X_1 X_1\\
-\implies d_{111}' & = d_{111} = d_{111} \mbox{ (Neumanm's Principle)}
+\implies d_{111}' & = d_{111} = d_{111} \mbox{ (Neumann's Principle)}
 \end{aligned}
 \\]
 
@@ -80,7 +78,7 @@ transforms as:
 \\[
 \begin{aligned}
 X_2'X_1'X_1' & = (-X_2) X_1 X_1\\
-\implies d_{211}' & = -d_{211} = d_{211} \mbox{ (Neumanm's Principle)}\\
+\implies d_{211}' & = -d_{211} = d_{211} \mbox{ (Neumann's Principle)}\\
 \implies d_{211} & = 0
 \end{aligned}
 \\]
@@ -154,7 +152,7 @@ $d_{313}$ transforms as:
 X_3'X_1'X_3' & = X_3(-\frac{1}{2} X_1 - \frac{\sqrt{3}}{2} X_2)X_3\\
 & = -\frac{1}{2} X_3 X_1 X_3 - \frac{\sqrt{3}}{2} X_3 X_2 X_3 \\
 \implies d_{313}' & = -\frac{1}{2} d_{313} - \frac{\sqrt{3}}{2} d_{323}\\
-\implies d_{313}' & = -\frac{1}{2} d_{313} \mbox{($d_{323}$ was shown to be zero earlier)}\\
+\implies d_{313}' & = -\frac{1}{2} d_{313} \mbox{ ($d_{323}$ was shown to be zero earlier)} = d_{313}\\
 \implies d_{313} = 0\\
 \mbox{Similarly, } d_{331} = 0\\
 \implies d_{35} = 0
@@ -170,27 +168,21 @@ $d_{312}$ transforms as:
 \begin{aligned}
 X_3'X_1'X_2' & = X_3(-\frac{1}{2} X_1 - \frac{\sqrt{3}}{2} X_2)(\frac{\sqrt{3}}{2} X_1 - \frac{1}{2} X_2)\\
 & = -\frac{\sqrt{3}}{4} X_3 X_1 X_1 + \frac{1}{4} X_3 X_1 X_2 - \frac{3}{4} X_3 X_2 X_1 + \frac{\sqrt{3}}{4} X_3 X_2 X_2 \\
-\implies d_{312}' & = -\frac{\sqrt{3}}{4} d_{311} + \frac{1}{4} d_{312} - \frac{3}{4} d_{321} + \frac{\sqrt{3}}{4} d_{322} \\
-\implies d_{312}' & = \frac{1}{4} d_{312} - \frac{3}{4} d_{321} = d_{312} \\
+\implies d_{312}' & = -\frac{\sqrt{3}}{4} d_{311} + \frac{1}{4} d_{312} - \frac{3}{4} d_{321} + \frac{\sqrt{3}}{4} d_{322}
 \end{aligned}
 \\]
 
-$d_{312}$ transforms as (just swapping indices above):
+Zeroing out the elements we have determined earlier and applying Neumann's 
+Principle, we have
 
 \\[
 \begin{aligned}
-\implies d_{321}' & = \frac{1}{4} d_{321} - \frac{3}{4} d_{312} = d_{321} \\
+d_{312}' & = \frac{1}{4} d_{312} - \frac{3}{4} d_{321} = d_{312}\\
+\implies d_{312} = - d_{321}
 \end{aligned}
 \\]
 
-Combining the two, we find that:
-
-\\[
-\begin{aligned}
-d_{312} & = d_{321} = 0\\
-d_{36} & = 0
-\end{aligned}
-\\]
+Hence, $d_{36} = d_{312} + d_{321} = 0$
 
 ## Constraints on $d_{14}$ and $d_{25}$
 
@@ -258,7 +250,7 @@ d_{12}' = -\frac{3}{8} d_{11} - \frac{1}{8} d_{12} + \frac{3}{8} d_{26} = d_{12}
 \end{aligned}
 \\]
 
-Combining the relation derived for $d_{11}$ and $d{12}$, we get:
+Combining the relation derived for $d_{11}$ and $d_{12}$, we get:
 
 \\[
 \begin{aligned}
@@ -279,6 +271,16 @@ d_{11} & -d_{11} & 0 & d_{14} & 0 & 0\\
 0 & 0 & 0 & 0 & 0 & 0
 \end{pmatrix}
 \\]
+
+In general, this is a more involved process than usual because the trigonal 3-fold
+rotation does not align with orthogonal axes. For 4-fold symmetry, the process is
+considerably simpler. But it is useful to go through this, which illustrates all the
+key steps of deriving symmetry restrictions:
+
+1. Convert from Voigt to tensor notation
+2. Determine the mapping of axes for the symmetry operations.
+3. Apply mapping to tensor elements and Neumann's Principle.
+4. Determine equalities and elements with value 0.
 
 
 
