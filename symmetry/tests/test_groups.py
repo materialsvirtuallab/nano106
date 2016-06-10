@@ -43,8 +43,7 @@ class SpaceGroupTest(unittest.TestCase):
 
     def test_get_orbit(self):
         sg = SpaceGroup("Fm-3m")
-        p = np.random.random_integers(0, 100, size=(3,))
-        p /= 100
+        p = np.random.randint(0, 100 + 1, size=(3,)) / 100
         self.assertLessEqual(len(sg.get_orbit(p)), sg.order)
 
 if __name__ == '__main__':
