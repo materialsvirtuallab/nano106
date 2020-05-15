@@ -65,3 +65,4 @@ docs/_build/
 .out
 .fdb_latexmk
 .bbl
+.DS_Store
